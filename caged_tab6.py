@@ -15,6 +15,10 @@ from bs4 import BeautifulSoup
 import urllib.request
 import time
 
+import boto3
+from botocore import exceptions
+from botocore.exceptions import ClientError
+
 url_caged = "http://pdet.mte.gov.br/novo-caged"
 parser = 'html.parser'  # or 'lxml' (preferred) or 'html5lib', if installed
 resp = urllib.request.urlopen(url_caged)
@@ -22,8 +26,8 @@ soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'
 url_tabela='http://pdet.mte.gov.br'
 for link in soup.find_all('a', href=True):
   if "tabelas.xlsx" in link['href']:
-        print("Link:",link['href'])
-        print("Url tabela: ", url_tabela+str(link['href']))
+        #print("Link:",link['href'])
+        #print("Url tabela: ", url_tabela+str(link['href']))
         url_tabela = url_tabela+str(link['href'])
 
 def excel_to_pandas2(URL, local_path, sheet, header):
@@ -40,12 +44,10 @@ def excel_to_pandas(URL, local_path, sheet, header,colunas):
     df = pd.read_excel(local_path,sheet_name=sheet,header=header, usecols= colunas)
     return df
 
-"""# Tabela 6"""
-
-
+# Tabela 6
 
 df_tab6 = excel_to_pandas2(url_tabela,'caged_tabela6_original.xlsx', 'Tabela 6', [4,5] )
-#df_tab6
+print("\nCriada tabela df_tab6\n")
 
 #df_tab6.columns
 
