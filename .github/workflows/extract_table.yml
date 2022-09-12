@@ -25,10 +25,7 @@ jobs:
       run: pip install numpy
     - name: Install lib datetime
       run: pip install datetime
-        
-  scrap_CAGED:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Scrap Caged Tabela 6
-          run: pwd;ls -l
+    - name: Execute Python Script to extract tabela 6    
+      run: |
+        python caged_tab6.py
        
