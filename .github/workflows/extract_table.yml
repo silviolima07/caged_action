@@ -35,12 +35,12 @@ jobs:
       
     - name: Execute Python Script to extract tabela 6    
       run: |
-        python caged_tab6.py
+        #python caged_tab6.py
+        echo "TESTE" > file.txt
         pwd;ls -l
    
-    - run: echo "TESTE"> file.txt
     - uses: actions/upload-artifact@v1
-        with:
+      with:
            name: file
            path: file.txt
         
