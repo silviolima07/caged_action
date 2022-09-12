@@ -37,13 +37,9 @@ jobs:
       run: |
         python caged_tab6.py
         pwd;ls -l
-  
-  upload_file:
-    name: Upload File
-    runs-on: ubuntu-latest
-    needs: get_libs_and_table
-    steps:
-      - uses: actions/upload-artifact@v1
+   
+    - name: upload
+    - uses: actions/upload-artifact@v1
         with:
            name: df_caged_tab6_092022
            path: df_caged_tab6_092022
@@ -51,7 +47,7 @@ jobs:
   download_file:
     name: Download File
     runs-on: ubuntu-latest
-    needs: upload_file
+    needs: get_libs_and_table
     steps:
       - uses: actions/download-artifact@v1
         with:
