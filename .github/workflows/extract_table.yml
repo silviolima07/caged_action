@@ -37,15 +37,15 @@ jobs:
       run: |
         python caged_tab6.py
    
-    #download_file:
-    # name: Download table
-    # runs-n: ubuntu-latest
-    # needs: build
-    # steps:
-    #    - uses: actions/download-artifact@v1
-    #       with:
-    #         name: file
-    #    - run: cat df_caged_tab6_092022.csv
+  download_file:
+      name: Download table
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - uses: actions/download-artifact@v1
+          with:
+             name: file
+        - run: cat df_caged_tab6_092022.csv
   
   
        
