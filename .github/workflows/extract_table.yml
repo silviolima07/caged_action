@@ -35,6 +35,5 @@ jobs:
       
     - name: Execute Python Script to extract tabela 6    
       run: |
-        python caged_tab6.py;pwd;ls -l
-        python echo $GITHUB_WORKSPACE
+        python caged_tab6.py;pwd;ls -l;echo $GITHUB_WORKSPACE
        
