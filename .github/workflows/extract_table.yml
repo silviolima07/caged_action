@@ -27,5 +27,5 @@ jobs:
       run: pip install datetime
         
     - name: Scrap Caged Tabela 6
-      run: python caged_tab6.py
+      run: pwd;ls -l
        
