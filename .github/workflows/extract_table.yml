@@ -39,7 +39,7 @@ jobs:
         #echo "TESTE" > file.txt
         pwd;ls -l
    
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v2
       with:
            name: df_caged_tab6_092022.csv
            path: df_caged_tab6_092022
