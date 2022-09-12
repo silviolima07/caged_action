@@ -35,5 +35,16 @@ jobs:
       
     - name: Execute Python Script to extract tabela 6    
       run: |
-        python caged_tab6.py;pwd;ls -l;echo $GITHUB_WORKSPACE
+        python caged_tab6.py
+   
+    download_file:
+     name: Download table
+     runs-n: ubuntu-latest
+     needs: build
+     steps:
+        - uses: actions/download-artifact@v1
+           with:
+             name: file
+        - run: cat df_caged_tab6_092022.csv
+  
        
