@@ -28,7 +28,11 @@ jobs:
     - name: Install lib requests
       run: pip install requests
     - name: Install lib bs4
-      run: pip install bs4  
+      run: pip install bs4
+      
+    - name: Install lib openpyxl
+      run: pip install openpyxl
+      
     - name: Execute Python Script to extract tabela 6    
       run: |
         python caged_tab6.py
