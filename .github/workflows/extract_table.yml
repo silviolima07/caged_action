@@ -51,7 +51,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::143390484559:role/S3Role
-        aws-region: us-east-2
+        aws-region: us-east-1
       
       
       
