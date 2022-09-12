@@ -29,6 +29,11 @@ jobs:
       run: pip install requests
     - name: Install lib bs4
       run: pip install bs4
+    - name: Install lib botocore
+      run: pip install botocore
+      
+    - name: Install lib boto3
+      run: pip install boto3  
       
     - name: Install lib openpyxl
       run: pip install openpyxl
@@ -54,7 +59,7 @@ jobs:
            name: df_caged_tab6_092022.csv
            path: .
       - name: Display files
-        run: pwd;ls -l    
+        run: pwd;ls -l;cat df_caged_tab6_092022.csv    
   
     
          
