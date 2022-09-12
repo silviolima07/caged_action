@@ -44,7 +44,7 @@ jobs:
       steps:
         - uses: actions/download-artifact@v1
           with:
-             name: df_caged_tab6_092022.csv
+             name: df_caged_tab6_092022
         - run: cat df_caged_tab6_092022.csv
   
   
