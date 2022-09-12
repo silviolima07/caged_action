@@ -54,7 +54,7 @@ jobs:
            name: df_caged_tab6_092022
            path: df_caged_tab6_092022.csv
       - name: Display files
-        run: ls -l, pwd      
+        run: ls -l; pwd      
   
     
          
