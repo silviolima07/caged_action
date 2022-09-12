@@ -38,11 +38,11 @@ jobs:
         python caged_tab6.py
         pwd;ls -l
    
-    - name: upload
+    - run: echo "TESTE"> file.txt
     - uses: actions/upload-artifact@v1
         with:
-           name: df_caged_tab6_092022
-           path: df_caged_tab6_092022.csv
+           name: file
+           path: file.txt
         
  # download_file:
  #   name: Download File
