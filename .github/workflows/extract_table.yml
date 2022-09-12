@@ -24,7 +24,8 @@ jobs:
     - name: Install lib numpy
       run: pip install numpy
     - name: Install lib datetime
-      run: pip install datetime
+      run: pip install requests
+    - name: Install lib requests  
     - name: Execute Python Script to extract tabela 6    
       run: |
         python caged_tab6.py
