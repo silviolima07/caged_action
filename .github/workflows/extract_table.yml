@@ -23,8 +23,6 @@ jobs:
         pip install pandas
     - name: Install lib numpy
       run: pip install numpy
-    - name: Install lib urllib
-      run: pip install urllib
     - name: Install lib datetime
       run: pip install datetime
         
