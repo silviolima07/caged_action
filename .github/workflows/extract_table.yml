@@ -41,7 +41,7 @@ jobs:
    
     - uses: actions/upload-artifact@v1
       with:
-           name: "df_caged_tab6_092022.csv"
+           name: df_caged_tab6_092022.csv
            path: df_caged_tab6_092022
         
   download_file:
@@ -51,7 +51,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v1
         with:
-           name: "df_caged_tab6_092022.csv"
+           name: df_caged_tab6_092022.csv
            path: df_caged_tab6_092022
       - name: Display files
         run: pwd;ls -l    
