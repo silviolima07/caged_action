@@ -60,13 +60,13 @@ jobs:
    ##############################################################
    
         
-  AWS_Credentials:
-    runs-on: ubuntu-latest
-    env:
-      AWS_DEFAULT_REGION: us-east-1
-    permissions:
-      id-token: write
-      contents: read
+  #AWS_Credentials:
+  #  runs-on: ubuntu-latest
+ #   env:
+ #     AWS_DEFAULT_REGION: us-east-1
+ #   permissions:
+ #     id-token: write
+ #     contents: read
     #steps:
     #  - name: teste
     #  - uses: aws-actions/configure-aws-credentials@v1
