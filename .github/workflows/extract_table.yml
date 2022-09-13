@@ -61,7 +61,7 @@ jobs:
       
     - name: AWS command  
       run: |
-        aws --region us-east-1 s3 ls
+        aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
       
     #- uses: actions/upload-artifact@v2
     #  with:
