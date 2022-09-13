@@ -17,8 +17,8 @@ jobs:
       contents: read
       
     steps:   
-    - name: Credentials
     - uses: aws-actions/configure-aws-credentials@v1
+    - name: credentials
       with:
             role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}   
