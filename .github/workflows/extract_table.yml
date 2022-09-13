@@ -48,7 +48,7 @@ jobs:
         pwd;ls -l
       
     - name: Configure AWs Credentials
-      uses: aws-actions/configure-aws-credentials@master, sigstore
+      uses: aws-actions/configure-aws-credentials@master
       with:
         role-to-assume: arn:aws:iam::143390484559:role/S3Role
         aws-region: us-east-1
