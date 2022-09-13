@@ -53,10 +53,15 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         #role-to-assume: arn:aws:iam::143390484559:role/caged_action
-        role-to-assume: arn:aws:iam::143390484559:role/RoleS3Full
-        aws-region: us-east-1
+        role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+        aws-region: ${{env.AWS_DEFAULT_REGION}}
       
+    - name: Checkout
+      uses: actions/checkout@v2
       
+    - name: AWS command  
+      run: |
+        aws --region us-east-1
       
     #- uses: actions/upload-artifact@v2
     #  with:
