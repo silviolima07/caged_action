@@ -10,8 +10,8 @@ jobs:
   importar_libs:
 
     runs-on: ubuntu-latest
-    #env:
-    #  AWS_DEFAULT_REGION: us-east-1
+    env:
+      AWS_DEFAULT_REGION: us-east-1
     permissions:
       id-token: write
       contents: read
@@ -35,31 +35,33 @@ jobs:
     - name: Install lib bs4
       run: pip install bs4
     - name: Install lib botocore
-      run: pip install botocore
-      
+      run: pip install botocore    
     - name: Install lib boto3
       run: pip install boto3  
-      
     - name: Install lib openpyxl
       run: pip install openpyxl
-      
-    - name: Execute Python Script to extract tabela 6    
-      run: |
-        python caged_tab6.py
-        #echo "TESTE" > file.txt
-        pwd;ls -l
-      
-    - name: Configure AWs Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
+  
+  scrap_tabela_caged:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executar scrap da tabela 6 no caged
+        run: |
+          python caged_tab6.py
+          pwd;ls -l
+      - name: Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
         #role-to-assume: arn:aws:iam::143390484559:role/caged_action
-        role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-        #aws-region: ${{env.AWS_DEFAULT_REGION}}
+            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+            aws-region: ${{env.AWS_DEFAULT_REGION}}
       
     #- name: Checkout
     #  uses: actions/checkout@v2
       
-    - name: AWS command  
+  AWS_Command:
+    runs-on: ubuntu-lastest
+    steps:
+    - name: Copiar tabela para o bucket
       run: |
         pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
       
