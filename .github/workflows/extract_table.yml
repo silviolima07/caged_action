@@ -56,12 +56,12 @@ jobs:
         role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
         aws-region: ${{env.AWS_DEFAULT_REGION}}
       
-    - name: Checkout
-      uses: actions/checkout@v2
+    #- name: Checkout
+    #  uses: actions/checkout@v2
       
     - name: AWS command  
       run: |
-        aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+        pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
       
     #- uses: actions/upload-artifact@v2
     #  with:
