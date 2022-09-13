@@ -7,14 +7,31 @@ on:
   workflow_dispatch:
 
 jobs:
-  importar_libs_and_do_scrap:
-
-    runs-on: ubuntu-latest
+  AWS_Credentials:
+  
+  runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
     permissions:
       id-token: write
       contents: read
+      
+   name: Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+            aws-region: ${{env.AWS_DEFAULT_REGION}   
+      
+  
+  importar_libs_and_do_scrap:
+
+    runs-on: ubuntu-latest
+    needs: AWS_Credentials
+    #env:
+    #  AWS_DEFAULT_REGION: us-east-1
+    #permissions:
+    #  id-token: write
+    #  contents: read
 
     steps:
     - uses: actions/checkout@v2
@@ -46,10 +63,10 @@ jobs:
           pwd;ls;python caged_tab6.py
           pwd;ls -l
   
-    - name: Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+    #- name: Credentials
+    #  uses: aws-actions/configure-aws-credentials@v1
+    #  with:
+    #        role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}}
       
     - name: AWs command - levar tabela pro s3   
