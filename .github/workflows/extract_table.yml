@@ -56,11 +56,12 @@ jobs:
     - name: AWs command - levar tabela pro s3   
       run: |
         pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+        echo "Execução:"; echo $?
         
   #job2:
   #   runs-on: ubuntu-latest
-    - if: ${{df_caged_tab6_092022.csv}}
-    -  run: ls -la
+  #  - if: ${{df_caged_tab6_092022.csv}}
+  #  -  run: ls -la
       
 
 
