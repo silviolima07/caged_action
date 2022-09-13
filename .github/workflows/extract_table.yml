@@ -60,7 +60,7 @@ jobs:
           echo "Sucesso"
         else:
           echo "Erro"
-        fi   
+        endif  
         
   #job2:
   #   runs-on: ubuntu-latest
