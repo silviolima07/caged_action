@@ -42,14 +42,15 @@ jobs:
       run: pip install openpyxl
   
   scrap_tabela_caged:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Executar scrap da tabela 6 no caged
-        run: |
+    #runs-on: ubuntu-latest
+    uses: actions/setup-python@v2
+    run: |
           python caged_tab6.py
           pwd;ls -l
-      - name: Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+  
+  AWS_Credentials:
+     - name: Credentials
+uses: aws-actions/configure-aws-credentials@v1
         with:
         #role-to-assume: arn:aws:iam::143390484559:role/caged_action
             role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
