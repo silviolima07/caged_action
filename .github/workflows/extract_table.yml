@@ -73,9 +73,9 @@ jobs:
         with:
             role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}}
-      - name: copy  
-        run: |
-                pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged       
+      #- name: copy  
+      #  run: |
+      #          pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged       
             
     
         
