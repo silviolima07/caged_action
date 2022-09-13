@@ -59,10 +59,8 @@ jobs:
         
   #job2:
   #   runs-on: ubuntu-latest
-  #   if: ${{df_caged_tab6_092022.csv}}
-  #   steps:
-  #     - name: teste
-  #       run: ls -la
+    - if: ${{df_caged_tab6_092022.csv}}
+      run: ls -la
       
 
 
