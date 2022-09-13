@@ -76,12 +76,13 @@ jobs:
     #  uses: actions/checkout@v2
       
       
-  #AWS_Command:
-  #  runs-on: ubuntu-lastest
-  #  steps:
-  #  - name: Copiar tabela para o bucket
-  #    run: |
-  #      pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+  AWS_Command:
+    runs-on: ubuntu-lastest
+    needs: AWS_Credentials
+    steps:
+    - name: Copiar tabela para o bucket
+      run: |
+        pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
       
     #- uses: actions/upload-artifact@v2
     #  with:
