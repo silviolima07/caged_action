@@ -40,15 +40,16 @@ jobs:
       run: pip install boto3  
     - name: Install lib openpyxl
       run: pip install openpyxl
-  Scrap_caged:
-    runs-on: ubuntu-latest
-    needs: importar_libs
-    steps:
+  #Scrap_caged:
+  #  runs-on: ubuntu-latest
+    #uses: actions/setup-python@v2
+    #needs: importar_libs
+    #steps:
     - name: scrap_tabela_caged
         
     #uses: actions/setup-python@v2
       run: |
-          python caged_tab6.py
+          pwd;ls;python caged_tab6.py
           pwd;ls -l
   
   
