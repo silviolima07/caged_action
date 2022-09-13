@@ -53,13 +53,18 @@ jobs:
           pwd;ls -l
   
   
-  #AWS_Credentials:
-  #   - name: Credentials
-#uses: aws-actions/configure-aws-credentials@v1
-#        with:
+  AWS_Credentials:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+       #- name: Credentials
+       #uses: aws-actions/configure-aws-credentials@v1
+      with:
         #role-to-assume: arn:aws:iam::143390484559:role/caged_action
-#            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-#            aws-region: ${{env.AWS_DEFAULT_REGION}}
+            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+            aws-region: ${{env.AWS_DEFAULT_REGION}}
       
     #- name: Checkout
     #  uses: actions/checkout@v2
