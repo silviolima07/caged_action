@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  importar_libs:
+  importar_libs_and_do_scrap:
 
     runs-on: ubuntu-latest
     env:
@@ -55,6 +55,11 @@ jobs:
   
   AWS_Credentials:
     runs-on: ubuntu-latest
+    env:
+      AWS_DEFAULT_REGION: us-east-1
+    permissions:
+      id-token: write
+      contents: read
     
     steps:
     - name: Credentials
