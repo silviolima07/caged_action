@@ -61,7 +61,7 @@ jobs:
       
     - name: AWS command  
       run: |
-        aws --region us-east-1
+        aws --region us-east-1 s3 ls
       
     #- uses: actions/upload-artifact@v2
     #  with:
