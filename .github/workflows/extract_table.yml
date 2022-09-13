@@ -40,35 +40,15 @@ jobs:
       run: pip install boto3  
     - name: Install lib openpyxl
       run: pip install openpyxl
-  #Scrap_caged:
-  #  runs-on: ubuntu-latest
-    #uses: actions/setup-python@v2
-    #needs: importar_libs
-    #steps:
+      
     - name: scrap_tabela_caged
-        
-    #uses: actions/setup-python@v2
       run: |
           pwd;ls;python caged_tab6.py
           pwd;ls -l
   
-  
-  #AWS_Credentials_and_S3:
-  #  uses: actions/checkout@v2
-  #  needs: importar_libs_and_do_scrap
-    #env:
-    #  AWS_DEFAULT_REGION: us-east-1
-    #permissions:
-    #  id-token: write
-    #  contents: read
-    
-    #steps:
     - name: Credentials
       uses: aws-actions/configure-aws-credentials@v1
-       #- name: Credentials
-       #uses: aws-actions/configure-aws-credentials@v1
       with:
-        #role-to-assume: arn:aws:iam::143390484559:role/caged_action
             role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}}
       
@@ -76,23 +56,8 @@ jobs:
       run: |
         pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
       
-    #- uses: actions/upload-artifact@v2
-    #  with:
-    #       name: df_caged_tab6_092022.csv
-    #       path: .
-        
-  #download_file:
-  #  name: Download File
-  #  runs-on: ubuntu-latest
-  #  needs: get_libs_and_table
- #  steps:
- #     - uses: actions/download-artifact@v2
- #       with:
- #          name: df_caged_tab6_092022.csv
- #          path: .
- #     - name: Display files
- #       run: pwd;ls -l;cat df_caged_tab6_092022.csv    
-  
+
+
     
          
   
