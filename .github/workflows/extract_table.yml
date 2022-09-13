@@ -41,30 +41,30 @@ jobs:
     - name: Install lib openpyxl
       run: pip install openpyxl
   
-  scrap_tabela_caged:
+    - name: scrap_tabela_caged
     #runs-on: ubuntu-latest
-    uses: actions/setup-python@v2
-    run: |
+    #uses: actions/setup-python@v2
+      run: |
           python caged_tab6.py
           pwd;ls -l
   
-  AWS_Credentials:
-     - name: Credentials
-uses: aws-actions/configure-aws-credentials@v1
-        with:
+  #AWS_Credentials:
+  #   - name: Credentials
+#uses: aws-actions/configure-aws-credentials@v1
+#        with:
         #role-to-assume: arn:aws:iam::143390484559:role/caged_action
-            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-            aws-region: ${{env.AWS_DEFAULT_REGION}}
+#            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+#            aws-region: ${{env.AWS_DEFAULT_REGION}}
       
     #- name: Checkout
     #  uses: actions/checkout@v2
       
-  AWS_Command:
-    runs-on: ubuntu-lastest
-    steps:
-    - name: Copiar tabela para o bucket
-      run: |
-        pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+  #AWS_Command:
+  #  runs-on: ubuntu-lastest
+  #  steps:
+  #  - name: Copiar tabela para o bucket
+  #    run: |
+  #      pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
       
     #- uses: actions/upload-artifact@v2
     #  with:
