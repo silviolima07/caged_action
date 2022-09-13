@@ -57,12 +57,12 @@ jobs:
       run: |
         pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
         
-  job2:
-     runs-on: ubuntu-latest
-     if: ${{df_caged_tab6_092022.csv}}
-     steps:
-       - name: teste
-         run: ls -la
+  #job2:
+  #   runs-on: ubuntu-latest
+  #   if: ${{df_caged_tab6_092022.csv}}
+  #   steps:
+  #     - name: teste
+  #       run: ls -la
       
 
 
