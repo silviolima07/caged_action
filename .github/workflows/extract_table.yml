@@ -48,7 +48,7 @@ jobs:
         pwd;ls -l
       
     - name: Configure AWs Credentials
-      uses: fuller-inc/actions/configure-aws-assume-role@v1
+      uses: aws-actions/configure-aws-assume-role@v1
       with:
         role-to-assume: arn:aws:iam::143390484559:role/caged_action
         aws-region: us-east-1
