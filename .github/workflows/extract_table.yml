@@ -9,15 +9,16 @@ on:
 jobs:
   AWS_Credentials:
   
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
     permissions:
       id-token: write
       contents: read
       
-   name: Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+    steps:   
+    - name: Credentials
+    - uses: aws-actions/configure-aws-credentials@v1
       with:
             role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}   
