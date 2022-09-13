@@ -57,6 +57,33 @@ jobs:
       run: |
         pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
         
+   ##############################################################
+   
+        
+  AWS_Credentials:
+
+    runs-on: ubuntu-latest
+    env:
+      AWS_DEFAULT_REGION: us-east-1
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.9"
+        
+    - name: Credentials AWS
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+            aws-region: ${{env.AWS_DEFAULT_REGION}}
+            
+    
+        
       
 
 
