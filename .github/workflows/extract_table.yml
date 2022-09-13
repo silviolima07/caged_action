@@ -55,7 +55,7 @@ jobs:
   
     - name: AWs command - levar tabela pro s3   
       run: |
-        pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+        pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-cagedd
         echo "Execução:"; echo $?
         
   #job2:
