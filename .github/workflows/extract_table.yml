@@ -10,6 +10,8 @@ jobs:
   get_libs_and_table:
 
     runs-on: ubuntu-latest
+    env:
+      AWS_DEFAULT_REGION: us-east-1
     permissions:
       id-token: write
       contents: read
@@ -48,9 +50,10 @@ jobs:
         pwd;ls -l
       
     - name: Configure AWs Credentials
-      uses: aws-actions/configure-aws-assume-role@v1
+      uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: arn:aws:iam::143390484559:role/caged_action
+        #role-to-assume: arn:aws:iam::143390484559:role/caged_action
+        role-to-assume: arn:aws:iam::143390484559:role/RoleS3Full
         aws-region: us-east-1
       
       
