@@ -7,11 +7,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  get_libs_and_table:
+  importar_libs:
 
     runs-on: ubuntu-latest
-    env:
-      AWS_DEFAULT_REGION: us-east-1
+    #env:
+    #  AWS_DEFAULT_REGION: us-east-1
     permissions:
       id-token: write
       contents: read
@@ -54,7 +54,7 @@ jobs:
       with:
         #role-to-assume: arn:aws:iam::143390484559:role/caged_action
         role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-        aws-region: ${{env.AWS_DEFAULT_REGION}}
+        #aws-region: ${{env.AWS_DEFAULT_REGION}}
       
     #- name: Checkout
     #  uses: actions/checkout@v2
