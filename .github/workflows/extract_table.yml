@@ -72,7 +72,7 @@ jobs:
       - uses: actions/download-artifact@v1
         with:
           name: df_caged_tab6_092022.csv
-      -  run: pwd;ls  
+      - run: pwd;ls  
    
         
   #AWS_Credentials:
