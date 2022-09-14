@@ -46,21 +46,21 @@ jobs:
           pwd;ls;python caged_tab6.py
           pwd;ls -l
   
-    - name: Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-            aws-region: ${{env.AWS_DEFAULT_REGION}}
+    #- name: Credentials
+    #  uses: aws-actions/configure-aws-credentials@v1
+    #  with:
+    #        role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+    #        aws-region: ${{env.AWS_DEFAULT_REGION}}
       
     #- name: AWs command - levar tabela pro s3   
     #  run: |
-    #    pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+    #    pwd;ls;aws s3 cp df_caged_tab6.csv s3://s3-caged
         
     - name: upload tabela csv
       run: ls -l
     - uses: actions/upload-artifact@v1
       with:
-         name: df_caged_tab6_092022.csv
+         name: df_caged_tab6.csv
          path: . 
    #####################################################      
   download_file:
@@ -77,7 +77,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v1
         with:
-          name: df_caged_tab6_092022.csv
+          name: df_caged_tab6.csv
           path: .
           
       - name: Credentials
@@ -87,10 +87,10 @@ jobs:
             aws-region: ${{env.AWS_DEFAULT_REGION}}    
       #- name: AWs command - levar tabela pro s3
       - run: |
-          pwd;ls -l;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+          pwd;ls -l;aws s3 cp df_caged_tab6.csv s3://s3-caged
       #- name: AWs command - levar tabela pro s3   
       #- run: |
-      #    pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+      #    pwd;ls;aws s3 cp df_caged_tab6.csv s3://s3-caged
     
          
   
