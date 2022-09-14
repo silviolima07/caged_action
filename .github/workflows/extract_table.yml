@@ -71,6 +71,7 @@ jobs:
       - uses: actions/download-artifact@v1
         with:
           name: df_caged_tab6_092022.csv
+          path: .
       #- name: AWs command - levar tabela pro s3
       - run: |
           pwd;ls -l;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
