@@ -83,7 +83,7 @@ jobs:
      - name: get aws credential
        uses: aws-actions/configure-aws-credentials@v1
        with:
-          role-to-assume: arn:aws:iam::${{secret.id}}:role/github-actions-role
+          role-to-assume: arn:aws:iam::${{secrets.id}}:role/github-actions-role
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
      - name: copy table to bucket
        run: |
