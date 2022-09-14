@@ -74,7 +74,7 @@ jobs:
         with:
             role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}}
-      - run: pwd;ls      
+      #- run: pwd;ls      
       #- uses: actions/download-artifact@v1
       #  with:
       #    name: df_caged_tab6_092022.csv
