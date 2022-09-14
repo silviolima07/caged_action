@@ -53,7 +53,7 @@ jobs:
     #        role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
     #        aws-region: ${{env.AWS_DEFAULT_REGION}}
       
-    #- name: AWs command - levar tabela pro s3   
+    #- name: levar tabela pro s3   
     #  run: |
     #    pwd;ls;aws s3 cp df_caged_tab6.csv s3://s3-caged
         
@@ -80,12 +80,12 @@ jobs:
           name: df_caged_tab6.csv
           path: .
  #         
-     - name: get AWS Credentials
+     - name: get aws credential
        uses: aws-actions/configure-aws-credentials@v1
        with:
-          role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+          role-to-assume: arn:aws:iam::${{secret.id}}:role/github-actions-role
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
-     - name: AWs command - levar tabela pro s3
+     - name: copy table to bucket
        run: |
           pwd;ls -l;aws s3 cp df_caged_tab6.csv s3://s3-caged
      
