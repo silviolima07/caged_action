@@ -55,7 +55,7 @@ jobs:
          path: . 
    #####################################################      
   download_file:
-    name: 'get credential and \ncopy table to bucket'
+    name: get_cred_and_copy_table_to s3
     runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
