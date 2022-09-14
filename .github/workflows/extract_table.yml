@@ -46,16 +46,6 @@ jobs:
       run: |
           pwd;ls;python caged_tab6.py
           pwd;ls -l
-  
-    #- name: Credentials
-    #  uses: aws-actions/configure-aws-credentials@v1
-    #  with:
-    #        role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-    #        aws-region: ${{env.AWS_DEFAULT_REGION}}
-      
-    #- name: levar tabela pro s3   
-    #  run: |
-    #    pwd;ls;aws s3 cp df_caged_tab6.csv s3://s3-caged
         
     - name: upload tabela csv
       run: ls -l
@@ -65,7 +55,7 @@ jobs:
          path: . 
    #####################################################      
   download_file:
-    name: get credential and copy table to bucket
+    name: 'get credential and \ncopy table to bucket'
     runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
