@@ -7,21 +7,59 @@ on:
   workflow_dispatch:
 
 jobs:
-  aws_credentials:
-    name: get aws credential to copy table to bucket
+  importar_libs_and_do_scrap:
+
     runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
     permissions:
       id-token: write
       contents: read
+
     steps:
-      - name: get credentials
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.9"
+    - name: Install lib pandas
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas
+    - name: Install lib numpy
+      run: pip install numpy
+    - name: Install lib datetime
+      run: pip install datetime
+    - name: Install lib requests
+      run: pip install requests
+    - name: Install lib bs4
+      run: pip install bs4
+    - name: Install lib botocore
+      run: pip install botocore    
+    - name: Install lib boto3
+      run: pip install boto3  
+    - name: Install lib openpyxl
+      run: pip install openpyxl
+      
+    - name: scrap_tabela_caged
+      run: |
+          pwd;ls;python caged_tab6.py
+          pwd;ls -l
+  
+    - name: Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
             role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}}
       
+    - name: AWs command - levar tabela pro s3   
+      run: |
+        pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+      
 
- 
- 
+
+    
+         
+  
+  
+       
