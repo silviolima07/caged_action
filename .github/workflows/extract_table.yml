@@ -23,11 +23,11 @@ jobs:
       with:
         python-version: "3.9"
         
-    - name: Credentials AWS
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-            aws-region: ${{env.AWS_DEFAULT_REGION}}
+    #- name: Credentials AWS
+    #  uses: aws-actions/configure-aws-credentials@v1
+    #  with:
+    #        role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+    #        aws-region: ${{env.AWS_DEFAULT_REGION}}
             
     - name: Install lib pandas
       run: |
@@ -60,9 +60,9 @@ jobs:
          path: .
           
   
-    - name: AWs command - levar tabela pro s3   
-      run: |
-        pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
+    #- name: AWs command - levar tabela pro s3   
+    #  run: |
+    #    pwd;ls;aws s3 cp df_caged_tab6_092022.csv s3://s3-caged
         
    ##############################################################
   download_file:
@@ -76,7 +76,7 @@ jobs:
       - run: pwd;ls  
      
   AWS_Credentials:
-    name: Get Credential and take table to bucket
+    name: Get Credential and copy table to bucket
     runs-on: ubuntu-latest
     needs: download_file
     env:
