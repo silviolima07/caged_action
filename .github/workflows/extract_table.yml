@@ -70,12 +70,13 @@ jobs:
       contents: read
     steps:
       - name: get credentials
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-            aws-region: ${{env.AWS_DEFAULT_REGION}}
-      - name: teste      
-        run: pwd;ls  
+      #- uses: aws-actions/configure-aws-credentials@v1
+      #  with:
+      #      role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+      #      aws-region: ${{env.AWS_DEFAULT_REGION}}
+      #- name: teste      
+        run: |
+         pwd;ls  
         
       #- uses: actions/download-artifact@v1
       #  with:
