@@ -74,20 +74,20 @@ jobs:
       id-token: write
       contents: read
     needs: import_libs_and_do_scrap
- #   steps:
- #     - uses: actions/download-artifact@v1
- #       with:
- #         name: df_caged_tab6.csv
- #         path: .
+    steps:
+     - uses: actions/download-artifact@v1
+       with:
+          name: df_caged_tab6.csv
+          path: .
  #         
- #     - name: get AWS Credentials
-  #      uses: aws-actions/configure-aws-credentials@v1
-  #      with:
-  #          role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
-  #          aws-region: ${{env.AWS_DEFAULT_REGION}}    
-  #    - name: AWs command - levar tabela pro s3
-  #    - run: |
-  #        pwd;ls -l;aws s3 cp df_caged_tab6.csv s3://s3-caged
+     - name: get AWS Credentials
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+          role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+          aws-region: ${{env.AWS_DEFAULT_REGION}}    
+    #- name: AWs command - levar tabela pro s3
+     - run: |
+          pwd;ls -l;aws s3 cp df_caged_tab6.csv s3://s3-caged
      
       
     
