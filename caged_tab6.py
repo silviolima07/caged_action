@@ -109,7 +109,7 @@ x = datetime.now().date()
 data = x.strftime("%m%Y")
 print("Data:", data)
 
-# Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
+# Algumas tabelas tem apenas as colunas de col1: Janeiro/2020
 col1 = ['Admissões', 'Desligamentos', 'Saldos']
 #col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
@@ -133,18 +133,10 @@ for i in colunas:
     print("\nError")
     #print(temp)
 
-   
-  #if i == 'Janeiro/2020':
-  #  temp['Variação Relativa (%)'] = 0
-  #  print("Janeiro/2020:",temp)
-
 df_final = pd.concat(frames)
-#print("Data:",df_final['data'])
 
-#mes,ano = df_final['data'].str.split('/')
-#df_final['ano'] = ano
-#df_final['mes'] = mes
-df_final.to_csv('df_caged_tab6_'+data+'.csv', index=False, encoding='utf-8')
+#df_final.to_csv('df_caged_tab6_'+data+'.csv', index=False, encoding='utf-8')
+df_final.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
 
 
 print("\nCriado df_caged_tab6.csv no mes/ano:", data)
