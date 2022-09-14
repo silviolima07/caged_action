@@ -65,7 +65,7 @@ jobs:
          path: . 
    #####################################################      
   download_file:
-    name: get aws credential and copy table to bucket
+    name: get credential and copy table to bucket
     runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
@@ -85,8 +85,8 @@ jobs:
        with:
           role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
-    #- name: AWs command - levar tabela pro s3
-     - run: |
+     - name: AWs command - levar tabela pro s3
+       run: |
           pwd;ls -l;aws s3 cp df_caged_tab6.csv s3://s3-caged
      
       
