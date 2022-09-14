@@ -10,12 +10,12 @@ jobs:
   import_libs_and_do_scrap:
 
     runs-on: ubuntu-latest
-    env:
-      AWS_DEFAULT_REGION: us-east-1
+    #env:
+    #  AWS_DEFAULT_REGION: us-east-1
       
-    permissions:
-      id-token: write
-      contents: read
+    #permissions:
+    #  id-token: write
+    #  contents: read
 
     steps:
     - uses: actions/checkout@v2
