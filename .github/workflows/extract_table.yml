@@ -56,8 +56,8 @@ jobs:
       run: ls
     - uses: actions/upload-artifact@v1
       with:
-         name: df_caged_tab6_092022
-         path: df_caged_tab6_092022.csv
+         name: df_caged_tab6_092022.csv
+         path: .
           
   
     - name: AWs command - levar tabela pro s3   
