@@ -64,16 +64,16 @@ jobs:
          name: df_caged_tab6.csv
          path: . 
    #####################################################      
-  #download_file:
-  #  name: get aws credential and copy table to bucket
-  #  runs-on: ubuntu-latest
-  #  env:
-  #    AWS_DEFAULT_REGION: us-east-1
+  download_file:
+    name: get aws credential and copy table to bucket
+    runs-on: ubuntu-latest
+    env:
+      AWS_DEFAULT_REGION: us-east-1
       
- #   permissions:
- #     id-token: write
- #     contents: read
- #   needs: import_libs_and_do_scrap
+    permissions:
+      id-token: write
+      contents: read
+    needs: import_libs_and_do_scrap
  #   steps:
  #     - uses: actions/download-artifact@v1
  #       with:
