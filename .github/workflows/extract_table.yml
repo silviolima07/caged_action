@@ -53,6 +53,7 @@ jobs:
           pwd;ls;python caged_tab6.py
           
     - name: upload tabela csv
+      run: ls
     - uses: actions/upload-artifact@v1
       with:
          name: df_caged_tab6_092022
