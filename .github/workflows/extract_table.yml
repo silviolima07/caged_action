@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
+      
     permissions:
       id-token: write
       contents: read
@@ -70,6 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_DEFAULT_REGION: us-east-1
+      id: ${{ secrets.id }}
     permissions:
       id-token: write
       contents: read
@@ -83,7 +85,7 @@ jobs:
       - name: get AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
+            role-to-assume: arn:aws:iam::id:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}}    
       - name: AWs command - levar tabela pro s3
       - run: |
