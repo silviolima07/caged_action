@@ -85,7 +85,7 @@ jobs:
       - name: get AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-            role-to-assume: arn:aws:iam::${{secrets.id}}:role/github-actions-role
+            role-to-assume: arn:aws:iam::143390484559:role/github-actions-role
             aws-region: ${{env.AWS_DEFAULT_REGION}}    
       - name: AWs command - levar tabela pro s3
       - run: |
