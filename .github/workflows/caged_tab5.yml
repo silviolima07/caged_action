@@ -1,13 +1,13 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Scrap Caged Tabela 6
+name: Scrap Caged Tabela 5
 
 on:
   workflow_dispatch:
 
 jobs:
-  import_libs_and_do_scrap_tab6:
+  import_libs_and_do_scrap_tab5:
 
     runs-on: ubuntu-latest
     #env:
@@ -44,14 +44,14 @@ jobs:
       
     - name: scrap_tabela_caged
       run: |
-          pwd;ls;python scripts/caged_tab6.py
+          pwd;ls;python scripts/caged_tab5.py
           ls -l transferir
         
     - name: upload tabela csv
       run: ls -l
     - uses: actions/upload-artifact@v1
       with:
-         name: df_caged_tab6.csv
+         name: df_caged_tab5.csv
          path: . 
    #####################################################      
   download_file:
@@ -63,11 +63,11 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    needs: import_libs_and_do_scrap_tab6
+    needs: import_libs_and_do_scrap_tab5
     steps:
      - uses: actions/download-artifact@v1
        with:
-          name: df_caged_tab6.csv
+          name: df_caged_tab5.csv
           path: .
  #         
      - name: get aws credential
@@ -77,7 +77,7 @@ jobs:
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
      - name: copy table to bucket
        run: |
-          pwd;ls -l transferir;aws s3 cp transferir/df_caged_tab6.csv s3://s3-caged
+          pwd;ls -l transferir;aws s3 cp transferir/df_caged_tab5.csv s3://s3-caged
      
       
     
