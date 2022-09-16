@@ -23,8 +23,8 @@ soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'
 url_tabela='http://pdet.mte.gov.br'
 for link in soup.find_all('a', href=True):
   if "tabelas.xlsx" in link['href']:
-        print("Link:",link['href'])
-        print("Url tabela: ", url_tabela+str(link['href']))
+        #print("Link:",link['href'])
+        #print("Url tabela: ", url_tabela+str(link['href']))
         url_tabela = url_tabela+str(link['href'])
 
 print(url_tabela)
@@ -57,6 +57,8 @@ df_tab3.loc[df_tab3.UF != 'Não identificado']
 df_tab3['Admissões'] = df_tab3['Admissões'].astype('int')
 df_tab3['Desligamentos'] = df_tab3['Desligamentos'].astype('int')
 df_tab3['Saldos'] = df_tab3['Saldos'].astype('int')
+df_tab3['data'] = data
 df_tab3
 
-df_tab3.to_csv("df_caged_tab3_"+data+".csv", index=False, encoding='utf-8')
+#df_tab3.to_csv("df_caged_tab3_"+data+".csv", index=False, encoding='utf-8')
+df_tab3.to_csv("df_caged_tab3.csv", index=False, encoding='utf-8')
