@@ -44,7 +44,7 @@ jobs:
       
     - name: scrap_tabela_caged
       run: |
-          pwd;ls;python scripts/caged_tab6.py
+          pwd;ls;python scripts/caged_tab4.py
 
         
     - name: upload tabela csv
