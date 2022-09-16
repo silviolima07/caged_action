@@ -21,8 +21,8 @@ soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'
 url_tabela='http://pdet.mte.gov.br'
 for link in soup.find_all('a', href=True):
   if "tabelas.xlsx" in link['href']:
-        print("Link:",link['href'])
-        print("Url tabela: ", url_tabela+str(link['href']))
+        #print("Link:",link['href'])
+        #print("Url tabela: ", url_tabela+str(link['href']))
         url_tabela = url_tabela+str(link['href'])
 
 print(url_tabela)
@@ -82,4 +82,4 @@ df_tab5['Variação Relativa (%)'] = df_tab5['Variação Relativa (%)'].replace(
 df_tab5['Variação Relativa (%)'] = np.round(df_tab5['Variação Relativa (%)'],2)
 
 #df_tab5.to_csv("df_caged_tab5_"+data+'.csv', index=False, encoding='utf-8')
-df_tab5.to_csv("df_caged_tab5.csv", index=False, encoding='utf-8')
+df_tab5.to_csv("transferir/df_caged_tab5.csv", index=False, encoding='utf-8')

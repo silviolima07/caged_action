@@ -48,11 +48,11 @@ jobs:
           ls -l transferir
         
     - name: upload tabela csv
-      run: ls -l
+      run: pwd;ls -l
     - uses: actions/upload-artifact@v1
       with:
          name: df_caged_tab5
-         path: transferir/df_caged_tab5.csv
+         path: transferir
    #####################################################      
   download_file:
     name: get_cred_and_copy_table_to s3
