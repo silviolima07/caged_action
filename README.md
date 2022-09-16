@@ -9,3 +9,7 @@
 - e leva pro bucket criado na AWS.
 ## Este scrap pode ser executado por demanda ou agendamento.
 ## As tabelas são extraidas e copiadas individualmente.
+
+Referências:
+- https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
+- https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
