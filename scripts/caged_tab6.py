@@ -46,7 +46,7 @@ def excel_to_pandas(URL, local_path, sheet, header,colunas):
 
 # Tabela 6
 
-df_tab6 = excel_to_pandas2(url_tabela,'tabelas_originais/caged_tabela6_original.xlsx', 'Tabela 6', [4,5] )
+df_tab6 = excel_to_pandas2(url_tabela,'caged_tabela6_original.xlsx', 'Tabela 6', [4,5] )
 print("\nCriada tabela df_tab6\n")
 
 #df_tab6.columns
@@ -138,7 +138,7 @@ for i in colunas:
 df_final = pd.concat(frames)
 
 #df_final.to_csv('df_caged_tab6_'+data+'.csv', index=False, encoding='utf-8')
-df_final.to_csv('transferir/df_caged_tab6.csv', index=False, encoding='utf-8')
+df_final.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
 
 
 print("\nCriado df_caged_tab6.csv no mes/ano:", data)
