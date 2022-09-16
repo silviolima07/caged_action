@@ -55,5 +55,7 @@ df_tab4.dropna(inplace=True)
 
 df_tab4 = df_tab4.loc[df_tab4.Atividade != 'Total']
 
+df_tab4['data'] = data
+
 #df_tab4.to_csv("df_caged_tab4_"+data+".csv", index=False, encoding='utf-8')
 df_tab4.to_csv("df_caged_tab4.csv", index=False, encoding='utf-8')
