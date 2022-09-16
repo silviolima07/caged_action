@@ -43,7 +43,7 @@ def excel_to_pandas(URL, local_path, sheet, header,colunas):
 
 colunas = ['Mês',	'Estoque',	'Admissões',	'Desligamentos',	'Saldos',	'Variação Relativa (%)']
 
-df_tab5 = excel_to_pandas(url_tabela,'tabelas_originais/caged_tabela5_original.xlsx', 'Tabela 5', 4, colunas)
+df_tab5 = excel_to_pandas(url_tabela,'caged_tabela5_original.xlsx', 'Tabela 5', 4, colunas)
 
 df_tab5.dropna(inplace=True)
 
@@ -82,4 +82,4 @@ df_tab5['Variação Relativa (%)'] = df_tab5['Variação Relativa (%)'].replace(
 df_tab5['Variação Relativa (%)'] = np.round(df_tab5['Variação Relativa (%)'],2)
 
 #df_tab5.to_csv("df_caged_tab5_"+data+'.csv', index=False, encoding='utf-8')
-df_tab5.to_csv("transferir/df_caged_tab5.csv", index=False, encoding='utf-8')
+df_tab5.to_csv("df_caged_tab5.csv", index=False, encoding='utf-8')
