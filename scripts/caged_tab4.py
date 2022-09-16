@@ -7,10 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1FDfMIVUrmyNwoY1VpQDKUrr8Wv7glYZW
 """
 
-
-
-
-
 import pandas as pd
 import numpy as np
 import requests
@@ -25,8 +21,8 @@ soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'
 url_tabela='http://pdet.mte.gov.br'
 for link in soup.find_all('a', href=True):
   if "tabelas.xlsx" in link['href']:
-        print("Link:",link['href'])
-        print("Url tabela: ", url_tabela+str(link['href']))
+        #print("Link:",link['href'])
+        #print("Url tabela: ", url_tabela+str(link['href']))
         url_tabela = url_tabela+str(link['href'])
 
 def excel_to_pandas2(URL, local_path, sheet, header):
@@ -59,4 +55,5 @@ df_tab4.dropna(inplace=True)
 
 df_tab4 = df_tab4.loc[df_tab4.Atividade != 'Total']
 
-df_tab4.to_csv("df_caged_tab4_"+data+".csv", index=False, encoding='utf-8')
+#df_tab4.to_csv("df_caged_tab4_"+data+".csv", index=False, encoding='utf-8')
+df_tab4.to_csv("df_caged_tab4.csv", index=False, encoding='utf-8')
