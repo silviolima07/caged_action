@@ -1,13 +1,13 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Scrap Caged Tabela 6
+name: Scrap Caged Tabela 7
 
 on:
   workflow_dispatch:
 
 jobs:
-  import_libs_and_do_scrap:
+  import_libs_and_do_scrap_tab7:
 
     runs-on: ubuntu-latest
     #env:
@@ -44,15 +44,15 @@ jobs:
       
     - name: scrap_tabela_caged
       run: |
-          pwd;ls;python scripts/caged_tab6.py
-          ls -l transferir
+          pwd;ls;python scripts/caged_tab7.py
+
         
     - name: upload tabela csv
-      run: ls -l
+      run:  pwd;ls -l;mkdir transferir;cp df_caged_tab7.csv transferir; ls transferir
     - uses: actions/upload-artifact@v1
       with:
-         name: df_caged_tab6.csv
-         path: . 
+         name: df_caged_tab7.csv
+         path: transferir
    #####################################################      
   download_file:
     name: get_cred_and_copy_table_to s3
@@ -63,11 +63,11 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    needs: import_libs_and_do_scrap
+    needs: import_libs_and_do_scrap_tab7
     steps:
      - uses: actions/download-artifact@v1
        with:
-          name: df_caged_tab6.csv
+          name: df_caged_tab7.csv
           path: .
  #         
      - name: get aws credential
@@ -77,11 +77,4 @@ jobs:
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
      - name: copy table to bucket
        run: |
-          pwd;ls -l transferir;aws s3 cp transferir/df_caged_tab6.csv s3://s3-caged
-     
-      
-    
-         
-  
-  
-       
+          pwd;ls -l ;aws s3 cp df_caged_tab7.csv s3://s3-caged
