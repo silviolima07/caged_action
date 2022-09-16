@@ -5,8 +5,9 @@
 
 ## Este action faz:
 - scrap da tabela.xlxs disponibilizada, 
-- extrai algumas tabelas 
-- e leva pro bucket criado na AWS.
+- extrai 5 tabelas e gera um csv para cada uma 
+- leva pro bucket criado na AWS para posterior analise.
+
 ## Este scrap pode ser executado por demanda ou agendamento.
 ## As tabelas são extraidas e copiadas individualmente.
 
