@@ -45,7 +45,7 @@ jobs:
     - name: scrap_tabela_caged
       run: |
           pwd;ls;python scripts/caged_tab6.py
-          cd transferir
+          ls -l transferir
         
     - name: upload tabela csv
       run: ls -l
@@ -77,7 +77,7 @@ jobs:
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
      - name: copy table to bucket
        run: |
-          pwd;ls -l;aws s3 cp df_caged_tab6.csv s3://s3-caged
+          pwd;ls -l;aws s3 cp transferir/df_caged_tab6.csv s3://s3-caged
      
       
     
