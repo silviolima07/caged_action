@@ -62,3 +62,4 @@ df_tab3
 
 #df_tab3.to_csv("df_caged_tab3_"+data+".csv", index=False, encoding='utf-8')
 df_tab3.to_csv("df_caged_tab3.csv", index=False, encoding='utf-8')
+df_tab3.to_parquet("df_caged_tab3.parquet")
