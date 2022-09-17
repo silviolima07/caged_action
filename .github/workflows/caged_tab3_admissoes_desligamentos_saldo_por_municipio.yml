@@ -70,7 +70,7 @@ jobs:
           name: df_caged_tab3.csv
           path: .
      - name: Install lib pandas
-       run: pip install pandas; import pandas as pd
+       run: pip install pandas
       
      - name: get aws credential
        uses: aws-actions/configure-aws-credentials@v1
@@ -83,5 +83,5 @@ jobs:
           
      - name : copy parquet to bucket     
        run: |
-          pwd;df = pd.read_csv("df_caged_tab3.csv")#; ls -l;echo "Copy parquet";aws s3 cp df_caged_tab3.parquet s3://s3-caged;
+          pwd;df = pandas.read_csv("df_caged_tab3.csv")#; ls -l;echo "Copy parquet";aws s3 cp df_caged_tab3.parquet s3://s3-caged;
         
