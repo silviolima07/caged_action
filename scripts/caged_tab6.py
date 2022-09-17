@@ -118,11 +118,11 @@ frames = []
 for i in colunas:
   try:
       if i == 'Janeiro/2020':
-            temp = df_tab6[i][1:27][col1]
-            temp['Variação Relativa (%)'] = 0
+          temp = df_tab6[i][1:27][col1]
+          temp['Variação Relativa (%)'] = 0
       print("Coluna:",i)
-       else:
-         temp = df_tab6[i][1:27][col2]
+      else:
+          temp = df_tab6[i][1:27][col2]
       mes, ano = i.split('/')
       temp['data'] = i
       temp['mes'] = mes
