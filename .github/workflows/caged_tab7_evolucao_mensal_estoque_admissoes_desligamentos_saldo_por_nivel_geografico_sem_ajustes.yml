@@ -92,7 +92,7 @@ jobs:
        with:
           role-to-assume: arn:aws:iam::${{secrets.id}}:role/github-actions-role
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
-     - name: copy table to bucket
+     - name: copy csv to bucket
        run: |
           pwd;ls -l ;aws s3 cp df_caged_tab7.csv s3://s3-caged/tab7/
 
