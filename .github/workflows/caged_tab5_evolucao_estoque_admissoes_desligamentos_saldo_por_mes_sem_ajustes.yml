@@ -41,6 +41,10 @@ jobs:
       run: pip install boto3  
     - name: Install lib openpyxl
       run: pip install openpyxl
+    - name: Install lib pyarrow
+      run: pip install pyarrow
+    - name: Install lib fastparquet
+      run: pip install fastparquet
       
     - name: scrap_tabela_caged
       run: |
@@ -53,6 +57,13 @@ jobs:
       with:
          name: df_caged_tab5.csv
          path: transferir
+         
+    - name: upload tabela parquet
+      run:  cp df_caged_tab5.parquet transferir; ls transferir
+    - uses: actions/upload-artifact@v1
+      with:
+         name: df_caged_tab5.parquet
+         path: transferir     
    #####################################################      
   download_file:
     name: get_cred_and_copy_table_to s3
@@ -69,7 +80,10 @@ jobs:
        with:
           name: df_caged_tab5.csv
           path: .
- #         
+     - uses: actions/download-artifact@v1
+       with:
+          name: df_caged_tab5.parquet
+          path: .        
      - name: get aws credential
        uses: aws-actions/configure-aws-credentials@v1
        with:
@@ -77,8 +91,11 @@ jobs:
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
      - name: copy table to bucket
        run: |
-          pwd;ls -l ;aws s3 cp df_caged_tab5.csv s3://s3-caged
+          pwd;ls -l ;aws s3 cp df_caged_tab5.csv s3://s3-caged/tab5/
      
+     - name : copy parquet to bucket     
+       run: |
+          echo "Copy parquet";ls -l; aws s3 cp df_caged_tab5.parquet s3://s3-caged/tab5/
       
     
          
