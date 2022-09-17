@@ -77,8 +77,11 @@ jobs:
        with:
           role-to-assume: arn:aws:iam::${{secrets.id}}:role/github-actions-role
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
-     - name: copy table to bucket
+     - name: copy csv table to bucket
        run: |
-          pwd;ls -l ;echo "Copy csv";aws s3 cp df_caged_tab3.csv s3://s3-caged;\
-          echo "Copy parquet";import pandas as pd;df = pd.read_csv("df_caged_tab3.csv")
-          #;df.to_parquet("df_caged_tab3.parquet");ls -l
+          pwd;ls -l ;echo "Copy csv";aws s3 cp df_caged_tab3.csv s3://s3-caged;
+          
+     - name : copy parquet to bucket     
+       run: |
+          pwd;import pandas as pd;df = pd.read_csv("df_caged_tab3.csv"); ls -l;echo "Copy parquet";aws s3 cp df_caged_tab3.parquet s3://s3-caged;
+        
