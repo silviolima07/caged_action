@@ -130,8 +130,8 @@ df_tab7['Admissões'] = df_tab7['Admissões'].astype('int32')
 df_tab7['Desligamentos'] = df_tab7['Desligamentos'].replace(',','')
 df_tab7['Desligamentos'] = df_tab7['Desligamentos'].astype('int32')
 #
-df_tab7['Estoque'] = df_tab7['Estoque'].replace(',','')
-df_tab7['Estoque'] = df_tab7['Estoque'].astype('int32')
+#df_tab7['Estoque'] = df_tab7['Estoque'].replace(',','')
+#df_tab7['Estoque'] = df_tab7['Estoque'].astype('int32')
 
 x=[]
 for i in df_tab7['uf']:
