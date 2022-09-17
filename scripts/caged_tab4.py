@@ -59,3 +59,4 @@ df_tab4['data'] = data
 
 #df_tab4.to_csv("df_caged_tab4_"+data+".csv", index=False, encoding='utf-8')
 df_tab4.to_csv("df_caged_tab4.csv", index=False, encoding='utf-8')
+df_tab4.to_parquet("df_caged_tab4.parquet",engine='pyarrow')
