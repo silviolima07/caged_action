@@ -113,32 +113,37 @@ print("Data:", data)
 
 # Algumas tabelas tem apenas as colunas de col1: Janeiro/2020
 col1 = ['Admissões', 'Desligamentos', 'Saldos']
-#col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
+col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
 for i in colunas:
   try:
+      if i == 'Janeiro/2020':
+            temp = df_tab6[i][1:27][col1]
+            temp['Variação Relativa (%)'] = 0
       print("Coluna:",i)
-      temp = df_tab6[i][1:27][col1]
+       else:
+         temp = df_tab6[i][1:27][col2]
       mes, ano = i.split('/')
       temp['data'] = i
       temp['mes'] = mes
       temp['ano'] = ano
       temp['atividade'] = atividades[1:]
-      #print(temp)
-      #print("df temp:", temp)
-      #print("df:",temp[i][:28])
-      #print("Colunas:", temp.columns)
-      #temp['variavel'] = i
       frames.append(temp)
   except:
     
     print("\nError")
     #print(temp)
 
-df_final = pd.concat(frames)
+df_tab6 = pd.concat(frames)
 
+#df_tab6['Variação Relativa (%)'] = df_tab6['Variação Relativa (%)'].replace('---',0)
+df_tab6['Variação Relativa (%)'] = df_tab6['Variação Relativa (%)'].astype('float')
+df_tab6['Variação Relativa (%)'] = np.round(df_tab6['Variação Relativa (%)'],2)
+
+print(df_tab6)
 #df_final.to_csv('df_caged_tab6_'+data+'.csv', index=False, encoding='utf-8')
-df_final.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
+df_tab6.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
+df_tab6.to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
 
 print("\nCriado df_caged_tab6.csv no mes/ano:", data)
