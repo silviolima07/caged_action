@@ -73,27 +73,53 @@ for var in lista_uf:
         ufs.append(var)
 
 # Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
-col1 = ['Admissões', 'Desligamentos', 'Saldos']
+#col1 = ['Admissões', 'Desligamentos', 'Saldos']
 #col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
+frames = []
+#for i in col_set:
+#  try:
+#      print("Coluna:",i)
+#      temp = df_tab7[i][1:27][col1]
+      
+#      mes, ano = i.split('/')
+#      temp['data'] = i
+#      temp['mes'] = mes
+#      temp['ano'] = ano
+#      temp['uf'] = ufs[1:]
+      #print(temp)
+#      
+#      frames.append(temp)
+#  except:
+    
+#    print("Error")
+    #print(temp)
+
+ # Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
+col1 = ['Estoque','Admissões', 'Desligamentos', 'Saldos']
+col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
 for i in col_set:
   try:
       print("Coluna:",i)
-      temp = df_tab7[i][1:27][col1]
+      if i == 'Janeiro/2020':
+          temp = df_tab7[i][1:27][col1]
+          temp['Variação Relativa (%)'] = 0
+      else:
+          temp = df_tab7[i][1:27][col2]
       
       mes, ano = i.split('/')
       temp['data'] = i
       temp['mes'] = mes
       temp['ano'] = ano
-      temp['uf'] = ufs[1:]
-      #print(temp)
-      
+      temp['atividade'] = ufs[1:]
       frames.append(temp)
   except:
     
     print("Error")
-    #print(temp)
-
+    print(temp)
+   
+    
+    
 
 df_tab7 = pd.concat(frames)
 
@@ -102,6 +128,8 @@ df_tab7['Saldos'] = df_tab7['Saldos'].astype('int32')
 df_tab7['Admissões'] = df_tab7['Admissões'].astype('int32')
 #
 df_tab7['Desligamentos'] = df_tab7['Desligamentos'].astype('int32')
+#
+df_tab7['Estoque'] = df_tab7['Estoque'].astype('int32')
 
 x=[]
 for i in df_tab7['uf']:
@@ -109,10 +137,11 @@ for i in df_tab7['uf']:
 
 df_tab7['uf'] = x
 
+print(df_tab7)
 
 df_tab7.to_csv('df_caged_tab7.csv', index=False, encoding='latin')
 
+df_tab7.to_parquet("df_caged_tab7.parquet",engine='pyarrow')
 
 
-
-print("\nCriado df_caged_tab7.csv")
+#print("\nCriado df_caged_tab7.csv")
