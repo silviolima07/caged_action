@@ -98,6 +98,7 @@ frames = []
 col1 = ['Estoque','Admissões', 'Desligamentos', 'Saldos']
 col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
+print("Total de mes/ano:",len(col_set))
 for i in col_set:
   try:
       print("Coluna:",i)
@@ -115,8 +116,8 @@ for i in col_set:
       frames.append(temp)
   except:
     
-    print("Error")
-    print(temp)
+    print("\n\tError")
+    print("Coluna:",i,"\n",temp)
    
     
     
@@ -141,7 +142,7 @@ for i in df_tab7['uf']:
 
 df_tab7['uf'] = x
 
-print(df_tab7)
+print("Antes de salvar:\n",df_tab7)
 
 df_tab7.to_csv('df_caged_tab7.csv', index=False, encoding='latin')
 
