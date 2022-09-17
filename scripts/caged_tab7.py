@@ -95,8 +95,8 @@ frames = []
     #print(temp)
 
  # Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
-col1 = ['Estoque','Admissões', 'Desligamentos', 'Saldos']
-col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
+col1 = ['Admissões', 'Desligamentos', 'Saldos']
+col2 = ['Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
 print("Total de mes/ano:",len(col_set))
 for i in col_set:
@@ -119,9 +119,6 @@ for i in col_set:
     print("\n\tError")
     print("Coluna:",i,"\n",temp)
    
-    
-    
-
 df_tab7 = pd.concat(frames)
 
 df_tab7['Saldos'] = df_tab7['Saldos'].replace(',','')
