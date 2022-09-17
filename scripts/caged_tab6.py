@@ -139,11 +139,23 @@ df_tab6 = pd.concat(frames)
 df_tab6['Variação Relativa (%)'] = df_tab6['Variação Relativa (%)'].astype('float')
 df_tab6['Variação Relativa (%)'] = np.round(df_tab6['Variação Relativa (%)'],2)
 
-print(df_tab6)
+
+df_tab6['Admissões'] = df_tab6['Admissões'].replace(',','')
+df_tab6['Admissões'] = df_tab6['Admissões'].astype('int')
+
+
+df_tab6['Desligamentos'] = df_tab6['Desligamentos'].replace(',','')
+df_tab6['Desligamentos'] = df_tab6['Desligamentos'].astype('int')
+
+
+df_tab6['Saldos'] = df_tab6['Saldos'].replace(',','')
+df_tab6['Saldos'] = df_tab6['Saldos'].astype('int')
+
+
 #df_final.to_csv('df_caged_tab6_'+data+'.csv', index=False, encoding='utf-8')
 df_tab6.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
 df_tab6.to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
 
-print("\nCriado df_caged_tab6.csv no mes/ano:", data)
+#print("\nCriado df_caged_tab6.csv no mes/ano:", data)
 
