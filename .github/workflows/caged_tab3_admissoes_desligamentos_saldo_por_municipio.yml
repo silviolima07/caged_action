@@ -70,7 +70,7 @@ jobs:
           name: df_caged_tab3.csv
           path: .
      - name: Install lib awsrangler
-       run: pip install awsranglear
+       run: pip install awswrangler
       
      - name: get aws credential
        uses: aws-actions/configure-aws-credentials@v1
@@ -80,7 +80,7 @@ jobs:
      - name: copy table to bucket
        run: |
           pwd;ls -l ;aws s3 cp df_caged_tab3.csv s3://s3-caged
-          import awsrangler as wr
+          import awswrangler as wr
           import pandas as pd
           df = pd.read_csv("df_caged_tab3.csv")
           wr.s3.to_parquet(
