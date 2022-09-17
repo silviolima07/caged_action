@@ -70,11 +70,6 @@ for i in colunas_temp:
 
 colunas = colunas[2:]
 
-#colunas
-
-#for i in meses:
-#  print(i)
-
 colunas_filtered = []
 for i in colunas:
   #print("Coluna:",i)
@@ -119,10 +114,11 @@ for i in colunas:
   try:
       print("Coluna:",i)
       if i == 'Janeiro/2020':
-          temp = df_tab6[i][1:27][col1]
+          temp = df_tab6[i][:27][cols1]
           temp['Variação Relativa (%)'] = 0
       else:
-          temp = df_tab6[i][1:27][col2]
+          temp = df_tab6[col][:27][cols2])  
+             
       mes, ano = i.split('/')
       temp['data'] = i
       temp['mes'] = mes
@@ -130,13 +126,11 @@ for i in colunas:
       temp['atividade'] = atividades[1:]
       frames.append(temp)
   except:
-    
     print("\nError")
     #print(temp)
 
 df_tab6 = pd.concat(frames)
 
-#df_tab6['Variação Relativa (%)'] = df_tab6['Variação Relativa (%)'].replace('---',0)
 df_tab6['Variação Relativa (%)'] = df_tab6['Variação Relativa (%)'].astype('float')
 df_tab6['Variação Relativa (%)'] = np.round(df_tab6['Variação Relativa (%)'],2)
 
