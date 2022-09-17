@@ -81,8 +81,8 @@ df_tab5['Saldos'] = df_tab5['Saldos'].astype('int32')
 df_tab5['Variação Relativa (%)'] = df_tab5['Variação Relativa (%)'].replace('----',0)
 df_tab5['Variação Relativa (%)'] = np.round(df_tab5['Variação Relativa (%)'],2)
 
-df_tab5['Variação Relativa (%)'] = df_tab3['Variação Relativa (%)'].astype('float')
-df_tab5['Variação Relativa (%)'] = np.round(df_tab3['Variação Relativa (%)'],2)
+df_tab5['Variação Relativa (%)'] = df_tab5['Variação Relativa (%)'].astype('float')
+df_tab5['Variação Relativa (%)'] = np.round(df_tab5['Variação Relativa (%)'],2)
 
 df_tab5.rename(columns={'Mês': 'Data'}, inplace=True)
 
