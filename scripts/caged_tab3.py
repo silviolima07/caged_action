@@ -62,6 +62,8 @@ df_tab3['data'] = data
 df_tab3['Variação Relativa (%)'] = df_tab3['Variação Relativa (%)'].replace('----',0)
 df_tab3['Variação Relativa (%)'] = np.round(df_tab3['Variação Relativa (%)'],2)
 
+print(df_tab3.info())
+
 #df_tab3.to_csv("df_caged_tab3_"+data+".csv", index=False, encoding='utf-8')
 df_tab3.to_csv("df_caged_tab3.csv", index=False, encoding='utf-8')
 df_tab3.to_parquet("df_caged_tab3.parquet",engine='pyarrow')
