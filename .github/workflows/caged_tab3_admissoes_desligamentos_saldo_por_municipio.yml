@@ -71,7 +71,10 @@ jobs:
           path: .
      - name: Install lib pandas
        run: pip install pandas
-      
+     
+     - name: Import lib pandas 
+       run: import pandas as pd
+       
      - name: get aws credential
        uses: aws-actions/configure-aws-credentials@v1
        with:
@@ -83,6 +86,6 @@ jobs:
           
      - name : copy parquet to bucket     
        run: |
-          echo "Copy parquet";import pandas as pd;
+          echo "Copy parquet";ls -l;
         
    
