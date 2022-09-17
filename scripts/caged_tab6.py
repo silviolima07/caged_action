@@ -117,7 +117,7 @@ for i in colunas:
           temp = df_tab6[i][:27][cols1]
           temp['Variação Relativa (%)'] = 0
       else:
-          temp = df_tab6[col][:27][cols2])  
+          temp = df_tab6[col][:27][cols2] 
              
       mes, ano = i.split('/')
       temp['data'] = i
