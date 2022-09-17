@@ -111,7 +111,7 @@ for i in col_set:
       temp['data'] = i
       temp['mes'] = mes
       temp['ano'] = ano
-      temp['atividade'] = ufs[1:]
+      temp['uf'] = ufs[1:]
       frames.append(temp)
   except:
     
@@ -123,12 +123,16 @@ for i in col_set:
 
 df_tab7 = pd.concat(frames)
 
+df_tab7['Saldos'] = df_tab7['Saldos'].replace(',','')
 df_tab7['Saldos'] = df_tab7['Saldos'].astype('int32')
 #
+df_tab7['Admissões'] = df_tab7['Admissões'].replace(',','')
 df_tab7['Admissões'] = df_tab7['Admissões'].astype('int32')
 #
+df_tab6['desligamentos'] = df_tab6['Desligamentos'].replace(',','')
 df_tab7['Desligamentos'] = df_tab7['Desligamentos'].astype('int32')
 #
+df_tab6['Estoque'] = df_tab6['Estoque'].replace(',','')
 df_tab7['Estoque'] = df_tab7['Estoque'].astype('int32')
 
 x=[]
