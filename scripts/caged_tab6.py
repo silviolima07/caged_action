@@ -117,10 +117,10 @@ col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa 
 frames = []
 for i in colunas:
   try:
+      print("Coluna:",i)
       if i == 'Janeiro/2020':
           temp = df_tab6[i][1:27][col1]
           temp['Variação Relativa (%)'] = 0
-      print("Coluna:",i)
       else:
           temp = df_tab6[i][1:27][col2]
       mes, ano = i.split('/')
