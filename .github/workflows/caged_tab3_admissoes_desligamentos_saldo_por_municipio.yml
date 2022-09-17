@@ -83,5 +83,6 @@ jobs:
           
      - name : copy parquet to bucket     
        run: |
-          echo "Copy parquet";import pandas as pd;pwd;ls -l#;df = pandas.read_csv('df_caged_tab3.csv')#; ls -l;aws s3 cp df_caged_tab3.parquet s3://s3-caged;
+          echo "Copy parquet";import pandas as pd;
         
+   
