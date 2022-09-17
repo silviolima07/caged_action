@@ -14,3 +14,4 @@
 Referências:
 - https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
 - https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
+- https://towardsdatascience.com/hands-on-introduction-to-github-actions-for-data-scientists-f422631c9ea7
