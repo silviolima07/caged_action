@@ -59,7 +59,8 @@ df_tab3['Desligamentos'] = df_tab3['Desligamentos'].astype('int')
 df_tab3['Saldos'] = df_tab3['Saldos'].astype('int')
 df_tab3['data'] = data
 
-df_tab3['Variação Relativa (%)'] = float(df_tab3['Variação Relativa (%)'].replace('----',0))
+df_tab3['Variação Relativa (%)'] = df_tab3['Variação Relativa (%)'].replace('---',0)
+df_tab3['Variação Relativa (%)'] = df_tab3['Variação Relativa (%)'].astype('float')
 df_tab3['Variação Relativa (%)'] = np.round(df_tab3['Variação Relativa (%)'],2)
 
 print(df_tab3.info())
