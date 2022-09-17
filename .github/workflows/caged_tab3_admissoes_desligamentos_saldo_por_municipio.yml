@@ -40,7 +40,11 @@ jobs:
     - name: Install lib boto3
       run: pip install boto3  
     - name: Install lib openpyxl
-      run: pip install openpyxl
+      run: pip install openpyxl  
+    - name: Install lib pyarrow
+      run: pip install pyarrow
+    - name: Install lib fastparquet
+      run: pip install fastparquet
       
     - name: scrap_tabela_caged
       run: |
