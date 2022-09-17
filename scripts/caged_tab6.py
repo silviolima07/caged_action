@@ -106,19 +106,19 @@ x = datetime.now().date()
 data = x.strftime("%m%Y")
 print("Data:", data)
 
-# Algumas tabelas tem apenas as colunas de col1: Janeiro/2020
+## Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
 col1 = ['Admissões', 'Desligamentos', 'Saldos']
-col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
+col2 = ['Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
 for i in colunas:
   try:
       print("Coluna:",i)
       if i == 'Janeiro/2020':
-          temp = df_tab6[i][:27][cols1]
+          temp = df_tab6[i][1:27][col1]
           temp['Variação Relativa (%)'] = 0
       else:
-          temp = df_tab6[col][:27][cols2] 
-             
+          temp = df_tab6[i][1:27][col2]
+      
       mes, ano = i.split('/')
       temp['data'] = i
       temp['mes'] = mes
@@ -126,8 +126,13 @@ for i in colunas:
       temp['atividade'] = atividades[1:]
       frames.append(temp)
   except:
-    print("\nError")
-    #print(temp)
+    
+    print("Error")
+    print(temp)
+
+df_final = pd.concat(frames)
+
+df_final.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
 
 df_tab6 = pd.concat(frames)
 
