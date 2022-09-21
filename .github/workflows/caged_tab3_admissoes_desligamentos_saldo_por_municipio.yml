@@ -8,7 +8,7 @@ name: Scrap Caged Tabela 3
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "0 21 27 * *"
 
 jobs:
   import_libs_and_do_scrap_tab3:
