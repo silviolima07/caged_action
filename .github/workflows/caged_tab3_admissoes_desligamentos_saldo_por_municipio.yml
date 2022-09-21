@@ -3,8 +3,12 @@
 
 name: Scrap Caged Tabela 3
 
+#on:
+#  workflow_dispatch:
+
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"
 
 jobs:
   import_libs_and_do_scrap_tab3:
