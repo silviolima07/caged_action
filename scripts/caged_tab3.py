@@ -65,7 +65,7 @@ df_tab3['Variação Relativa (%)'] = np.round(df_tab3['Variação Relativa (%)']
 
 #print(df_tab3.info())
 df_tab3.rename(columns={'UF':'uf', 'Município':'municipio', 'Admissões':'admissoes', 'Desligamentos': 'desligamentos', 'Saldos': 'saldos', 'Variação Relativa (%)': 'variacao_relativa'}, inplace=True)
-
+teste = df_tab3['uf']
 #df_tab3.to_csv("df_caged_tab3_"+data+".csv", index=False, encoding='utf-8')
-df_tab3.to_csv("df_caged_tab3.csv", index=False, encoding='utf-8')
+teste.to_csv("df_caged_tab3.csv", index=False, encoding='utf-8')
 df_tab3.to_parquet("df_caged_tab3.parquet",engine='pyarrow')
