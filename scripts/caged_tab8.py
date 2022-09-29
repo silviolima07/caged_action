@@ -76,12 +76,16 @@ for i in col_set:
   try:
       print("Coluna:",i)
       if i == 'Janeiro/2020':
-          temp = df_tab8[i][1:5571]
+          temp = df_tab8[i][1:5570]
           temp['Variação Relativa (%)'] = 0
           #print(temp.head())
           
+      elif i == 'Dezembro/2021':
+          temp = df_tab8[i][1:5570]   
+          temp.rename(column={"Estoque***\n(Estoque de referência de 2022)":'estoque'}, inplace=True)
+          temp = temp[col2]    
       else:
-          temp = df_tab8[i][1:5571][col2]
+          temp = df_tab8[i][1:5570][col2]
           #print(temp.head())
       
       mes, ano = i.split('/')
