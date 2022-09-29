@@ -110,6 +110,7 @@ df_tab8.dropna(inplace=True)
 
 
 print("Estoque")
+df_tab8 = df_tab8.loc[df_tab8['Estoque' != '---']
 df_tab8['Estoque'] = df_tab8['Estoque'].astype('int32')
 #
 print("Saldo")
