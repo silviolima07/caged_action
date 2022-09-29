@@ -84,7 +84,7 @@ for i in col_set:
           temp = df_tab8[i][1:5570]   
           #temp.rename(columns={"Estoque***\n(Estoque de referência de 2022)":'estoque'}, inplace=True)
           temp.columns = col2
-          print(temp.head())
+          #print(temp.head())
           
       else:
           temp = df_tab8[i][1:5570][col2]
@@ -107,18 +107,25 @@ for i in col_set:
 
 df_tab8 = pd.concat(frames)
 
+df_tab8.dropna(inplace=True)
+
+print("Saldo")
 df_tab8['Saldos'] = df_tab8['Saldos'].astype('int32')
 #
+print("Admissoes")
 df_tab8['Admissões'] = df_tab8['Admissões'].astype('int32')
 #
+print("Desligamentos")
 df_tab8['Desligamentos'] = df_tab8['Desligamentos'].astype('int32')
 #
+print("Variacão")
 df_tab8['Variação Relativa (%)'] = df_tab8['Variação Relativa (%)'].astype('float')
 
 
 df_tab8.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
 print("Final:", df_tab8)
+
 
 
 df_tab8.to_csv('df_caged_tab8.csv', index=False, encoding='latin')
