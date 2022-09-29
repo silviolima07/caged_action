@@ -81,8 +81,7 @@ for i in col_set:
           #print(temp.head())
           
       elif i == 'Dezembro/2021':
-          temp = df_tab8[i][1:5570]   
-          #temp.rename(columns={"Estoque***\n(Estoque de referência de 2022)":'estoque'}, inplace=True)
+          temp = df_tab8[i][1:5570]  
           temp.columns = col2
           #print(temp.head())
           
@@ -109,6 +108,10 @@ df_tab8 = pd.concat(frames)
 
 df_tab8.dropna(inplace=True)
 
+
+print("Estoque")
+df_tab8['Estoque'] = df_tab8['Estoque'].astype('int32')
+#
 print("Saldo")
 df_tab8['Saldos'] = df_tab8['Saldos'].astype('int32')
 #
