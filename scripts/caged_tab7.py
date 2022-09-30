@@ -72,31 +72,9 @@ ufs =[]
 for var in lista_uf:
         ufs.append(var)
 
-# Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
-#col1 = ['Admissões', 'Desligamentos', 'Saldos']
-#col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
-frames = []
-#for i in col_set:
-#  try:
-#      print("Coluna:",i)
-#      temp = df_tab7[i][1:27][col1]
-      
-#      mes, ano = i.split('/')
-#      temp['data'] = i
-#      temp['mes'] = mes
-#      temp['ano'] = ano
-#      temp['uf'] = ufs[1:]
-      #print(temp)
-#      
-#      frames.append(temp)
-#  except:
-    
-#    print("Error")
-    #print(temp)
-
  # Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
-col1 = ['Admissões', 'Desligamentos', 'Saldos']
-col2 = ['Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
+col1 = ['Estoque','Admissões', 'Desligamentos', 'Saldos']
+col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
 print("Total de mes/ano:",len(col_set))
 for i in col_set:
@@ -105,6 +83,11 @@ for i in col_set:
       if i == 'Janeiro/2020':
           temp = df_tab7[i][1:27][col1]
           temp['Variação Relativa (%)'] = 0
+        
+      elif i == 'Dezembro/2021':
+          temp = df_tab7[i][1:27]
+          temp.rename(columns={"Estoque***\n(Estoque de referência de 2022)":'Estoque'}, inplace=True)
+          temp = temp[col2]  
       else:
           temp = df_tab7[i][1:27][col2]
       
@@ -140,6 +123,9 @@ for i in df_tab7['uf']:
 df_tab7['uf'] = x
 
 print("Antes de salvar:\n",df_tab7)
+
+df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
+
 
 df_tab7.to_csv('df_caged_tab7.csv', index=False, encoding='latin')
 
