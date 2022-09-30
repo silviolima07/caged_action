@@ -113,7 +113,7 @@ df_tab8 = pd.concat(frames)
 print("Estoque")
 df_tab8 = df_tab8.loc[df_tab8['Estoque'] != '---']
 print('Shape:',df_tab8.shape)
-print('Estoque:', df_tab8['Estoque']                      
+print('Estoque:', df_tab8['Estoque'] )                     
                       
 #df_tab8['Estoque'] = df_tab8['Estoque'].astype('int32')
 #
