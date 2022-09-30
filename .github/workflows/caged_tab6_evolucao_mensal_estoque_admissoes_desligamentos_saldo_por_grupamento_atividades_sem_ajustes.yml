@@ -91,11 +91,11 @@ jobs:
           aws-region: ${{env.AWS_DEFAULT_REGION}}    
      - name: copy table to bucket
        run: |
-          pwd;ls -l ;aws s3 cp df_caged_tab6.csv s3://s3-caged/tab6/
+          pwd;ls -l ;aws s3 cp df_caged_tab6.csv s3://s3-proj-caged/tab6/csv/
    
      - name : copy parquet to bucket     
        run: |
-          echo "Copy parquet";ls -l; aws s3 cp df_caged_tab6.parquet s3://s3-caged/tab6/
+          echo "Copy parquet";ls -l; aws s3 cp df_caged_tab6.parquet s3://s3-proj-caged/tab6/parquet/
         
    
       
