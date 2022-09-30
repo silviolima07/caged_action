@@ -107,15 +107,20 @@ data = x.strftime("%m%Y")
 print("Data:", data)
 
 ## Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
-col1 = ['Admissões', 'Desligamentos', 'Saldos']
-col2 = ['Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
+col1 = ['Estoque','Admissões', 'Desligamentos', 'Saldos']
+col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
 for i in colunas:
   try:
       print("Coluna:",i)
       if i == 'Janeiro/2020':
           temp = df_tab6[i][1:27][col1]
-          temp['Variação Relativa (%)'] = 0
+          temp['Variação Relativa (%)'] = 0  
+        
+      elif i == 'Dezembro/2021':
+          temp = df_tab6[i]
+          temp.rename(columns={"Estoque***\n(Estoque de referência de 2022)":'Estoque'}, inplace=True)
+          temp = temp[col2]      
       else:
           temp = df_tab6[i][1:27][col2]
       
@@ -151,6 +156,7 @@ df_tab6['Desligamentos'] = df_tab6['Desligamentos'].astype('int')
 df_tab6['Saldos'] = df_tab6['Saldos'].replace(',','')
 df_tab6['Saldos'] = df_tab6['Saldos'].astype('int')
 
+df_tab6.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
 #df_final.to_csv('df_caged_tab6_'+data+'.csv', index=False, encoding='utf-8')
 df_tab6.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
