@@ -83,7 +83,7 @@ for i in col_set:
       elif i == 'Dezembro/2021':
           temp = df_tab8[i][1:5570]  
           temp.columns = col2
-          #print(temp.head())
+          
           
       else:
           temp = df_tab8[i][1:5570][col2]
@@ -95,7 +95,8 @@ for i in col_set:
       temp['ano'] = ano
       temp['uf'] = uf['UF']
       temp['municipio'] = municipio['Municipio']
-      #print(temp)
+      temp.dropna(inplace=True)
+      
       frames.append(temp)
     
       
@@ -106,11 +107,11 @@ for i in col_set:
 
 df_tab8 = pd.concat(frames)
 
-df_tab8.dropna(inplace=True)
+#df_tab8.dropna(inplace=True)
 
 
 print("Estoque")
-df_tab8 = df_tab8.loc[df_tab8['Estoque' != '---']
+df_tab8 = df_tab8.loc[df_tab8['Estoque'] != '---']
 print('Shape:',df_tab8.shape)
 print('Estoque:', df_tab8['Estoque']                      
                       
