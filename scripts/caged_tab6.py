@@ -118,7 +118,7 @@ for i in colunas:
           temp['Variação Relativa (%)'] = 0  
         
       elif i == 'Dezembro/2021':
-          temp = df_tab6[i]
+          temp = df_tab6[i][1:27]
           temp.columns = col2
       else:
           temp = df_tab6[i][1:27][col2]
@@ -157,7 +157,6 @@ df_tab6['Saldos'] = df_tab6['Saldos'].astype('int')
 
 df_tab6.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
-#df_final.to_csv('df_caged_tab6_'+data+'.csv', index=False, encoding='utf-8')
 df_tab6.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
 df_tab6.to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
