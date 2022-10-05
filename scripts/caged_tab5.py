@@ -86,7 +86,7 @@ df_tab5['Variação Relativa (%)'] = np.round(df_tab5['Variação Relativa (%)']
 
 df_tab5.rename(columns={'Mês':'data','Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
-mes, ano = df_tab5['data'].split('/')
+mes, ano = df_tab5['data'].str.split('/')
 df_tab5['mes'] = mes
 df_tab5['ano'] = ano
 
