@@ -47,28 +47,32 @@ df_tab5 = excel_to_pandas(url_tabela,'caged_tabela5_original.xlsx', 'Tabela 5', 
 
 df_tab5.dropna(inplace=True)
 
-primeiro_mes = df_tab5['Mês'].head(1).tolist()
-#
-ultimo_mes = df_tab5['Mês'].tail(1).tolist()
+mes, ano = df_tab5['Mês'].str.split('/')
+df_tab5['mes'] = mes
+df_tab5['ano'] = ano
 
-ultimo_mes
+#primeiro_mes = df_tab5['Mês'].head(1).tolist()
+#
+#ultimo_mes = df_tab5['Mês'].tail(1).tolist()
 
-mes = str(primeiro_mes).split('/')[0].replace("['",'')
-#
-ano = str(primeiro_mes).split('/')[1].replace("']",'')
-#
-primeiro_mes = mes+'_'+ano
-#
-#
-mes = str(ultimo_mes).split('/')[0].replace("['",'')
-#
-ano = str(ultimo_mes).split('/')[1].replace("']",'')
-#
-ultimo_mes = mes+'_'+ano
+#ultimo_mes
 
-print("de ",primeiro_mes, " a ",ultimo_mes)
+#mes = str(primeiro_mes).split('/')[0].replace("['",'')
+#
+#ano = str(primeiro_mes).split('/')[1].replace("']",'')
+#
+#primeiro_mes = mes+'_'+ano
+#
+#
+#mes = str(ultimo_mes).split('/')[0].replace("['",'')
+#
+#ano = str(ultimo_mes).split('/')[1].replace("']",'')
+#
+#ultimo_mes = mes+'_'+ano
 
-data = str(primeiro_mes)+'_a_'+str(ultimo_mes)
+#print("de ",primeiro_mes, " a ",ultimo_mes)
+
+#data = str(primeiro_mes)+'_a_'+str(ultimo_mes)
 
 df_tab5['Estoque'] = df_tab5['Estoque'].astype('int32')
 #
@@ -86,9 +90,7 @@ df_tab5['Variação Relativa (%)'] = np.round(df_tab5['Variação Relativa (%)']
 
 df_tab5.rename(columns={'Mês':'data','Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
-mes, ano = df_tab5['data'].str.split('/')
-df_tab5['mes'] = mes
-df_tab5['ano'] = ano
+print(df_tab5)
 
 #df_tab5.to_csv("df_caged_tab5_"+data+'.csv', index=False, encoding='utf-8')
 df_tab5.to_csv("df_caged_tab5.csv", index=False, encoding='utf-8')
