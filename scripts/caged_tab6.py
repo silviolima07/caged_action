@@ -117,10 +117,9 @@ for i in colunas:
           temp = df_tab6[i][1:27][col1]
           temp['Variação Relativa (%)'] = 0  
         
-      elif i == 'Dezembro/2021':
+       elif i == 'Dezembro/2021':
           temp = df_tab6[i]
-          temp.rename(columns={"Estoque***\n(Estoque de referência de 2022)":'Estoque'}, inplace=True)
-          temp = temp[col2]      
+          temp.columns = col2
       else:
           temp = df_tab6[i][1:27][col2]
       
