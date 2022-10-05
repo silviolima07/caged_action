@@ -47,10 +47,6 @@ df_tab5 = excel_to_pandas(url_tabela,'caged_tabela5_original.xlsx', 'Tabela 5', 
 
 df_tab5.dropna(inplace=True)
 
-mes, ano = df_tab5['Mês'].str.split('/')
-df_tab5['mes'] = mes
-df_tab5['ano'] = ano
-
 #primeiro_mes = df_tab5['Mês'].head(1).tolist()
 #
 #ultimo_mes = df_tab5['Mês'].tail(1).tolist()
