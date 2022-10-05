@@ -101,10 +101,10 @@ for var in lista_ativ:
 
 len(atividades)
 
-from datetime import datetime
-x = datetime.now().date()
-data = x.strftime("%m%Y")
-print("Data:", data)
+#from datetime import datetime
+#x = datetime.now().date()
+#data = x.strftime("%m%Y")
+#print("Data:", data)
 
 ## Algumas tabelas tem apenas as coluna de col1: Janeiro/2020
 col1 = ['Estoque','Admissões', 'Desligamentos', 'Saldos']
@@ -157,6 +157,7 @@ df_tab6['Saldos'] = df_tab6['Saldos'].astype('int')
 
 df_tab6.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
+print(df_tab6)
 df_tab6.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
 df_tab6.to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
