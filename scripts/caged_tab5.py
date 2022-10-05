@@ -86,6 +86,9 @@ df_tab5['Variação Relativa (%)'] = np.round(df_tab5['Variação Relativa (%)']
 
 df_tab5.rename(columns={'Mês':'data','Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
+mes, ano = df_tab5['data'].split('/')
+df_tab5['mes'] = mes
+df_tab5['ano'] = ano
 
 #df_tab5.to_csv("df_caged_tab5_"+data+'.csv', index=False, encoding='utf-8')
 df_tab5.to_csv("df_caged_tab5.csv", index=False, encoding='utf-8')
