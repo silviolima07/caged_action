@@ -82,7 +82,7 @@ for i in col_set:
       print("Coluna:",i)
       if i == 'Janeiro/2020':
           temp = df_tab7[i][1:27][col1]
-          temp['Variação Relativa (%)'] = 0
+          temp['Variação Relativa (%)'] = 0.0
         
       elif i == 'Dezembro/2021':
           temp = df_tab7[i][1:27]
@@ -104,6 +104,8 @@ for i in col_set:
    
 df_tab7 = pd.concat(frames)
 
+print(df_tab7.info())
+
 print("Dataset antes de mudar tipo:\n",df_tab7)
 
 df_tab7['Saldos'] = df_tab7['Saldos'].replace('.','')
@@ -118,7 +120,7 @@ df_tab7['Desligamentos'] = df_tab7['Desligamentos'].astype('int32')
 df_tab7['Estoque'] = df_tab7['Estoque'].replace('.','')
 df_tab7['Estoque'] = df_tab7['Estoque'].astype('int32')
 #
-df_tab7['Variação Relativa (%)'] = df_tab7['Variação Relativa (%)'].replace('.','')
+#df_tab7['Variação Relativa (%)'] = df_tab7['Variação Relativa (%)'].replace('.','')
 df_tab7['Variação Relativa (%)'] = df_tab7['Variação Relativa (%)'].astype('float')
 
 x=[]
@@ -126,6 +128,8 @@ for i in df_tab7['uf']:
   x.append(','.join(map(str,i)))
 
 df_tab7['uf'] = x
+
+print(df_tab7.info())
 
 print("Depois de mudar tipo:\n",df_tab7)
 
