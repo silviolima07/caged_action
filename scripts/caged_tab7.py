@@ -104,8 +104,6 @@ for i in col_set:
    
 df_tab7 = pd.concat(frames)
 
-print("df_tab7 tipos:", df_tab7.info())
-
 print("Dataset antes de mudar tipo:\n",df_tab7)
 
 df_tab7['Saldos'] = df_tab7['Saldos'].replace('.','')
@@ -129,12 +127,13 @@ for i in df_tab7['uf']:
 
 df_tab7['uf'] = x
 
-print("df_tab7 tipos:", df_tab7.info())
-
 print("Depois de mudar tipo:\n",df_tab7)
+
+print("variacao_relativa:", df_tab7['Variação Relativa (%)'])
 
 df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
+print("Colunas:", df_tab7.columns)
 
 df_tab7.to_csv('df_caged_tab7.csv', index=False, encoding='latin')
 
