@@ -104,6 +104,10 @@ for i in col_set:
    
 df_tab7 = pd.concat(frames)
 
+print("df_tab7 tipos:", df_tab7.info())
+
+print("Dataset antes de mudar tipo:\n",df_tab7)
+
 df_tab7['Saldos'] = df_tab7['Saldos'].replace('.','')
 df_tab7['Saldos'] = df_tab7['Saldos'].astype('int32')
 #
@@ -113,8 +117,8 @@ df_tab7['Admissões'] = df_tab7['Admissões'].astype('int32')
 df_tab7['Desligamentos'] = df_tab7['Desligamentos'].replace('.','')
 df_tab7['Desligamentos'] = df_tab7['Desligamentos'].astype('int32')
 #
-#df_tab7['Estoque'] = df_tab7['Estoque'].replace('.','')
-#df_tab7['Estoque'] = df_tab7['Estoque'].astype('int32')
+df_tab7['Estoque'] = df_tab7['Estoque'].replace('.','')
+df_tab7['Estoque'] = df_tab7['Estoque'].astype('int32')
 
 x=[]
 for i in df_tab7['uf']:
@@ -122,7 +126,9 @@ for i in df_tab7['uf']:
 
 df_tab7['uf'] = x
 
-print("Antes de salvar:\n",df_tab7)
+print("df_tab7 tipos:", df_tab7.info())
+
+print("Depois de mudar tipo:\n",df_tab7)
 
 df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
