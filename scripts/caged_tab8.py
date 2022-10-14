@@ -142,7 +142,7 @@ df_tab8.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligame
 
 print("Colunas:\n", df_tab8.columns)
 
-colunas = ['estoque', 'admissoes', 'desligamentos'] # , 'saldos', 'variacao_relativa','mes', 'ano', 'uf', 'municipio']
+colunas = ['estoque', 'admissoes', 'desligamentos','saldos', 'variacao_relativa','mes', 'ano', 'uf', 'municipio']
 
 print("Colunas na tab8:\n", colunas)
 
