@@ -142,7 +142,7 @@ df_tab8.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligame
 print("Colunas:", df_tab8.columns)
 print("Final:\n", df_tab8)
 
-colunas = ['saldos', 'uf','municipio', 'mes', 'ano', 'admissoes'] # , 'desligamentos', 'estoque', variacao_relativa']
+colunas = ['saldos', 'uf','municipio', 'mes', 'ano', 'admissoes', 'desligamentos', 'estoque', 'variacao_relativa']
 print("df_tab8:\n",df_tab8[colunas])
 
 df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='utf-8')
