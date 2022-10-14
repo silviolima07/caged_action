@@ -142,9 +142,11 @@ df_tab8.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligame
 print("Colunas:\n", df_tab8.columns)
 print("Final:\n", df_tab8)
 
-#colunas = ['saldos', 'uf','municipio', 'mes', 'ano', 'admissoes', 'desligamentos', 'estoque', 'variacao_relativa']
-#print("df_tab8:\n",df_tab8[colunas])
+colunas = ['estoque', 'admissoes', 'desligamentos', 'saldos', 'variacao_relativa',
+       'mes', 'ano', 'uf', 'municipio']
 
-df_tab8.to_csv('df_caged_tab8.csv', index=False, encoding='utf-8')
+print("Colunas na tab8:\n", colunas)
 
-df_tab8.to_parquet("df_caged_tab8.parquet",engine='pyarrow')
+df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='utf-8')
+
+df_tab8[colunas].to_parquet("df_caged_tab8.parquet",engine='pyarrow')
