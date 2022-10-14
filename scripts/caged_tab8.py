@@ -109,11 +109,11 @@ df_tab8 = pd.concat(frames)
 
 #df_tab8.dropna(inplace=True)
 
-print("Remover cedilha do nome do mes")
-df_tab8['mes'] = df_tab8['mes'].replace('Março','Marco')
-print("Removido cedilha")
+#print("Remover cedilha do nome do mes")
+#df_tab8['mes'] = df_tab8['mes'].replace('Março','Marco')
+#print("Removido cedilha")
 #
-print("Coluna mes Março:\n",df_tab8.loc[df_tab8['mes']== 'Marco'])
+#print("Coluna mes Março:\n",df_tab8.loc[df_tab8['mes']== 'Marco'])
 
 print("Estoque")
 df_tab8 = df_tab8.loc[df_tab8['Estoque'] != '---']
@@ -145,6 +145,6 @@ print("Final:\n", df_tab8)
 colunas = ['saldos', 'uf','municipio', 'mes', 'ano', 'admissoes'] # , 'desligamentos', 'estoque', variacao_relativa']
 print("df_tab8:\n",df_tab8[colunas])
 
-df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='latin1')
+df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='utf-8')
 
 df_tab8.to_parquet("df_caged_tab8.parquet",engine='pyarrow')
