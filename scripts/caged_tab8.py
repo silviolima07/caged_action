@@ -109,8 +109,8 @@ df_tab8 = pd.concat(frames)
 
 #df_tab8.dropna(inplace=True)
 
-#print("Remover cedilha do nome do mes")
-#df_tab8['mes'] = df_tab8['mes'].replace('Março','Marco')        
+print("Remover cedilha do nome do mes")
+df_tab8['mes'] = df_tab8['mes'].replace('Março','Marco')        
 
 print("Estoque")
 df_tab8 = df_tab8.loc[df_tab8['Estoque'] != '---']
