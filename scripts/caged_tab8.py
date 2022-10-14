@@ -110,7 +110,8 @@ df_tab8 = pd.concat(frames)
 #df_tab8.dropna(inplace=True)
 
 print("Remover cedilha do nome do mes")
-df_tab8['mes'] = df_tab8['mes'].replace('Março','Marco')        
+df_tab8['mes'] = df_tab8['mes'].replace('Março','Marco')
+print("Removido cedilha",df_tab8.loc[df_tab8['mes']== 'Março'])
 
 print("Estoque")
 df_tab8 = df_tab8.loc[df_tab8['Estoque'] != '---']
@@ -134,7 +135,7 @@ df_tab8['Variação Relativa (%)'] = df_tab8['Variação Relativa (%)'].astype('
 
 df_tab8.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
-df_teste = df_tab8
+#df_teste = df_tab8
 
 print("Colunas:", df_tab8.columns)
 print("Final:\n", df_tab8)
@@ -142,6 +143,6 @@ print("Final:\n", df_tab8)
 #colunas = ['saldos', 'uf','municipio', 'mes', 'ano']
 #print("df_teste:\n",df_teste[colunas])
 
-df_tab8.to_csv('df_caged_tab8.csv', index=False, encoding='utf-8')
+df_tab8.to_csv('df_caged_tab8.csv', index=False, encoding='latin1')
 
 df_tab8.to_parquet("df_caged_tab8.parquet",engine='pyarrow')
