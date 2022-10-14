@@ -92,7 +92,6 @@ for i in col_set:
       mes, ano = i.split('/')
       #temp['data'] = i
       temp['mes'] = mes
-      temp['mes] = temp['mes'].str.replace('ç','c')
       temp['ano'] = ano
       temp['uf'] = uf['UF']
       temp['municipio'] = municipio['Municipio']
@@ -110,6 +109,8 @@ df_tab8 = pd.concat(frames)
 
 #df_tab8.dropna(inplace=True)
 
+print("Remover cedilha do nome do mes")
+df_tab8['mes] = df_tab8['mes'].str.replace('ç','c')
 
 print("Estoque")
 df_tab8 = df_tab8.loc[df_tab8['Estoque'] != '---']
