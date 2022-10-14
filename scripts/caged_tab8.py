@@ -149,6 +149,6 @@ print("Colunas na tab8:\n", colunas)
 print("Final:\n", df_tab8[colunas])
 
 
-df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='utf-8)
+df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='utf-8')
 
 df_tab8[colunas].to_parquet("df_caged_tab8.parquet",engine='pyarrow')
