@@ -137,7 +137,7 @@ df_teste = df_tab8
 print("Colunas:", df_tab8.columns)
 print("Final:", df_tab8)
 
-colunas = ['saldos', 'uf'] # , 'municipio', 'data', 'mes', 'ano']
+colunas = ['saldos', 'uf','municipio'] # , 'data', 'mes', 'ano']
 print("df_teste:\n",df_teste[colunas])
 
 df_teste[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='latin')
