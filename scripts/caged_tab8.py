@@ -137,8 +137,8 @@ df_teste = df_tab8
 print("Colunas:", df_tab8.columns)
 print("Final:", df_tab8)
 
-print("df_teste:\n",df_teste['saldos'])
+print("df_teste:\n",df_teste[['saldos', 'uf', 'municipio', 'data', 'mes', 'ano']])
 
-df_teste['saldos'].to_csv('df_caged_tab8.csv', index=False, encoding='latin')
+df_teste[['saldos', 'uf', 'municipio', 'data', 'mes', 'ano']].to_csv('df_caged_tab8.csv', index=False, encoding='latin')
 
 df_tab8.to_parquet("df_caged_tab8.parquet",engine='pyarrow')
