@@ -92,6 +92,7 @@ for i in col_set:
       mes, ano = i.split('/')
       #temp['data'] = i
       temp['mes'] = mes
+      temp['mes] = temp['mes'].str.replace('ç','c')
       temp['ano'] = ano
       temp['uf'] = uf['UF']
       temp['municipio'] = municipio['Municipio']
