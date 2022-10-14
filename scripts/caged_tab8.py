@@ -90,7 +90,7 @@ for i in col_set:
           #print(temp.head())
       
       mes, ano = i.split('/')
-      temp['data'] = i
+      #temp['data'] = i
       temp['mes'] = mes
       temp['ano'] = ano
       temp['uf'] = uf['UF']
@@ -137,7 +137,7 @@ df_teste = df_tab8
 print("Colunas:", df_tab8.columns)
 print("Final:\n", df_tab8)
 
-colunas = ['saldos', 'uf','municipio', 'data' ]#, 'mes', 'ano']
+colunas = ['saldos', 'uf','municipio', 'mes', 'ano']
 print("df_teste:\n",df_teste[colunas])
 
 df_teste[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='latin')
