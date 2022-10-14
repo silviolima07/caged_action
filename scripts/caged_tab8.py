@@ -133,6 +133,7 @@ df_tab8['Desligamentos'] = df_tab8['Desligamentos'].astype('int32')
 #
 #print("Variacão")
 df_tab8['Variação Relativa (%)'] = df_tab8['Variação Relativa (%)'].astype('float')
+df_tab8['Variação Relativa (%)'] = round(df_tab8['Variação Relativa (%)'],2)
 
 
 df_tab8.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
@@ -147,6 +148,6 @@ colunas = ['estoque', 'admissoes', 'desligamentos', 'saldos', 'variacao_relativa
 
 print("Colunas na tab8:\n", colunas)
 
-df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='utf-8')
+df_tab8[colunas].to_csv('df_caged_tab8.csv', index=False, encoding='latin-1')
 
 df_tab8[colunas].to_parquet("df_caged_tab8.parquet",engine='pyarrow')
