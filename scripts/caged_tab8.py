@@ -135,7 +135,7 @@ df_tab8['Desligamentos'] = df_tab8['Desligamentos'].astype('int32')
 df_tab8['Variação Relativa (%)'] = df_tab8['Variação Relativa (%)'].astype('float')
 df_tab8['Variação Relativa (%)'] = round(df_tab8['Variação Relativa (%)'],2)
 
-print("Variacao_relativa arrendondada:\n", df_tab8['Variação Relativa (%)'])
+#print("Variacao_relativa arrendondada:\n", df_tab8['Variação Relativa (%)'])
 
 df_tab8.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
