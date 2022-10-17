@@ -175,6 +175,8 @@ print("Final:\n",df_tab6[colunas])
 
 print(df_tab6[colunas])
 
+print("Atividades:\n",df_tab6['atividade']
+
 print("Salvando csv")
 
 df_tab6[colunas].to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
@@ -186,3 +188,4 @@ df_tab6[colunas].to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
 #print("\nCriado df_caged_tab6.csv no mes/ano:", data)
 
+p
