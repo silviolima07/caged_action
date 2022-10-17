@@ -96,8 +96,14 @@ for i in temp2:
     ano.append(str(i).split(',')[1].replace(']','').replace("'",''))
 df_tab5['mes'] = mes
 df_tab5['ano'] = ano   
-print(df_tab5)
 
-#df_tab5.to_csv("df_caged_tab5_"+data+'.csv', index=False, encoding='utf-8')
-df_tab5.to_csv("df_caged_tab5.csv", index=False, encoding='utf-8')
-df_tab5.to_parquet("df_caged_tab5.parquet",engine='pyarrow')
+#colunas = ['estoque', 'admissoes', 'desligamentos','saldos', 'variacao_relativa','mes', 'ano']
+colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano']
+
+print("Colunas na tab5:\n", colunas)
+
+print("Final:\n",df_tab5[colunas])
+
+df_tab5[colunas].to_csv("df_caged_tab5.csv", index=False, encoding='utf-8')
+
+df_tab5[colunas].to_parquet("df_caged_tab5.parquet",engine='pyarrow')
