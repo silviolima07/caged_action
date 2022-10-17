@@ -157,7 +157,7 @@ print("Colunas:", df_tab7.columns)
 #colunas = ['estoque', 'admissoes', 'desligamentos','saldos', 'variacao_relativa','mes', 'ano', 'uf', 'municipio']
 colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano', 'regiao_uf']
 
-print("Colunas na tab8:\n", colunas)
+print("Colunas na tab7:\n", colunas)
 
 print("Final:\n",df_tab7[colunas])
 
