@@ -95,16 +95,17 @@ atividades =[]
 for var in lista_ativ:
         atividades.append(var)
 
-temp = []
+temp_ativ = []
 
 for var in atividades:
     word = str(var).replace('[','').replace(']','')
     word = word.replace("'",'')
     #print("Atividades:\n",word)
-    temp.append(word)
+    temp_ativ.append(word)
 
-#print("Atividades sem []:\n", temp)
-atividades = temp 
+atividades = temp_ativ
+
+print("ATIVIDADES:\n", atividades)
 
 #from datetime import datetime
 #x = datetime.now().date()
