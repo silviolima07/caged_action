@@ -76,7 +76,7 @@ for var in lista_uf:
 col1 = ['Estoque','Admissões', 'Desligamentos', 'Saldos']
 col2 = ['Estoque','Admissões', 'Desligamentos', 'Saldos', 'Variação Relativa (%)']
 frames = []
-print("Total de mes/ano:",len(col_set))
+#print("Total de mes/ano:",len(col_set))
 for i in col_set:
   try:
       print("Coluna:",i)
@@ -108,7 +108,7 @@ print(df_tab7.info())
 
 p
 
-print("Dataset antes de mudar tipo:\n",df_tab7)
+#print("Dataset antes de mudar tipo:\n",df_tab7)
 
 df_tab7['Saldos'] = df_tab7['Saldos'].replace('.','')
 df_tab7['Saldos'] = df_tab7['Saldos'].astype('int32')
@@ -131,9 +131,9 @@ for i in df_tab7['uf']:
 
 df_tab7['uf'] = x
 
-print(df_tab7.info())
+#print(df_tab7.info())
 
-print("Depois de mudar tipo:\n",df_tab7)
+#print("Depois de mudar tipo:\n",df_tab7)
 
 print("variacao_relativa:", df_tab7['Variação Relativa (%)'])
 
@@ -142,9 +142,9 @@ df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligame
 #print("Colunas:", df_tab7.columns)
 
 colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano']
-print("Colunas:", colunas)
+print("Colunas:\n", colunas)
 
-print("Final:\n",df_tab7.head())
+print("Final:\n",df_tab7['colunas'].head())
 
 df_tab7['colunas'].to_csv('df_caged_tab7.csv', index=False, encoding='latin')
 
