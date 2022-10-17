@@ -139,7 +139,7 @@ df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligame
 
 #print("Colunas:", df_tab7.columns)
 
-colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano']
+colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano', 'uf']
 print("Colunas:\n", colunas)
 
 print("Final:\n",df_tab7['colunas'].head())
