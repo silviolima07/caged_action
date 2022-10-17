@@ -137,17 +137,18 @@ df_tab7['uf'] = x
 
 df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
-#print("Colunas:", df_tab7.columns)
+print("Colunas:", df_tab7.columns)
 
+#colunas = ['estoque', 'admissoes', 'desligamentos','saldos', 'variacao_relativa','mes', 'ano', 'uf', 'municipio']
 colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano', 'uf']
-print("Colunas:")
-print(colunas)
 
-print("Final:\n",df_tab7['colunas'])
+print("Colunas na tab8:\n", colunas)
 
-df_tab7['colunas'].to_csv('df_caged_tab7.csv', index=False, encoding='latin')
+print("Final:\n",df_tab7[colunas])
 
-df_tab7['colunas'].to_parquet("df_caged_tab7.parquet",engine='pyarrow')
+df_tab7[colunas].to_csv('df_caged_tab7.csv', index=False, encoding='latin')
+
+df_tab7[colunas].to_parquet("df_caged_tab7.parquet",engine='pyarrow')
 
 
 #print("\nCriado df_caged_tab7.csv")
