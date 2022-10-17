@@ -59,7 +59,6 @@ df_tab5.dropna(inplace=True)
 #
 #primeiro_mes = mes+'_'+ano
 #
-#
 #mes = str(ultimo_mes).split('/')[0].replace("['",'')
 #
 #ano = str(ultimo_mes).split('/')[1].replace("']",'')
