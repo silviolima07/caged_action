@@ -143,7 +143,7 @@ colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano', 'uf']
 print("Colunas:")
 print(colunas)
 
-print("Final:\n",df_tab7['colunas'].head())
+print("Final:\n",df_tab7['colunas'])
 
 df_tab7['colunas'].to_csv('df_caged_tab7.csv', index=False, encoding='latin')
 
