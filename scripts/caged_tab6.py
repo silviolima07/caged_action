@@ -163,9 +163,13 @@ print("Colunas na tab6:\n", colunas)
 
 print("Final:\n",df_tab6[colunas])
 
+print(df_tab6[colunas])
 
-print(df_tab6)
+print("Salvando csv")
+
 df_tab6[colunas].to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
+
+print("Salvando parquet")
 
 df_tab6[colunas].to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
