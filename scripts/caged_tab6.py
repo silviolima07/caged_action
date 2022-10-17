@@ -100,7 +100,7 @@ temp = []
 for var in atividades:
     word = str(var).replace('[','').replace(']','')
     print("Atividades:\n",word)
-    temp.append(var)
+    temp.append(word)
 
 print("Atividades sem []:\n", temp)
           
