@@ -102,7 +102,7 @@ for var in atividades:
     print("Atividades:\n",word)
     temp.append(var)
 
-print(Atividades sem []:\n", temp)
+print("Atividades sem []:\n", temp)
           
 #from datetime import datetime
 #x = datetime.now().date()
