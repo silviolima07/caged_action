@@ -165,8 +165,9 @@ print("Final:\n",df_tab6[colunas])
 
 
 print(df_tab6)
-df_tab6.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
-df_tab6.to_parquet("df_caged_tab6.parquet",engine='pyarrow')
+df_tab6[colunas].to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
+
+df_tab6[coluns].to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
 
 #print("\nCriado df_caged_tab6.csv no mes/ano:", data)
