@@ -106,8 +106,6 @@ df_tab7 = pd.concat(frames)
 
 print(df_tab7.info())
 
-p
-
 #print("Dataset antes de mudar tipo:\n",df_tab7)
 
 df_tab7['Saldos'] = df_tab7['Saldos'].replace('.','')
