@@ -95,15 +95,15 @@ atividades =[]
 for var in lista_ativ:
         atividades.append(var)
 
-temp_ativ = []
+#temp_ativ = []
 
-for var in atividades:
-    word = str(var).replace('[','').replace(']','')
-    word = word.replace("'",'')
-    #print("Atividades:\n",word)
-    temp_ativ.append(word)
+#for var in atividades:
+#    word = str(var).replace('[','').replace(']','')
+#    word = word.replace("'",'')
+#    #print("Atividades:\n",word)
+#    temp_ativ.append(word)
 
-atividades = temp_ativ
+#atividades = temp_ativ
 
 print("ATIVIDADES:\n", atividades)
 
