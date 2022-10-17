@@ -16,6 +16,13 @@ import io
 from bs4 import BeautifulSoup
 import urllib.request
 
+from unicodedata import normalize 
+
+def remover_acentos(txt):
+    return normalize('NFKD', txt).encode('ASCII', 'ignore').decode('ASCII')
+
+
+
 url_caged = "http://pdet.mte.gov.br/novo-caged"
 parser = 'html.parser'  # or 'lxml' (preferred) or 'html5lib', if installed
 resp = urllib.request.urlopen(url_caged)
@@ -129,18 +136,26 @@ for i in df_tab7['uf']:
 
 df_tab7['uf'] = x
 
+temp = []
+for i in df_tab7['uf']:
+    word = remover_acentos(i)
+    temp.append(word)
+    print("Regiao_uf sem acento: ",word)
+    
+df_tab7['uf'] = temp
+
 #print(df_tab7.info())
 
 #print("Depois de mudar tipo:\n",df_tab7)
 
 #print("variacao_relativa:", df_tab7['Variação Relativa (%)'])
 
-df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
+df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa', 'uf':'regiao_uf'}, inplace=True)
 
 print("Colunas:", df_tab7.columns)
 
 #colunas = ['estoque', 'admissoes', 'desligamentos','saldos', 'variacao_relativa','mes', 'ano', 'uf', 'municipio']
-colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano', 'uf']
+colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano', 'regiao_uf']
 
 print("Colunas na tab8:\n", colunas)
 
