@@ -140,7 +140,7 @@ temp = []
 for i in df_tab7['uf']:
     word = remover_acentos(i)
     temp.append(word)
-    print("Regiao_uf sem acento: ",word)
+    #print("Regiao_uf sem acento: ",word)
     
 df_tab7['uf'] = temp
 
