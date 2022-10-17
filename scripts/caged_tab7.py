@@ -135,7 +135,7 @@ df_tab7['uf'] = x
 
 #print("Depois de mudar tipo:\n",df_tab7)
 
-print("variacao_relativa:", df_tab7['Variação Relativa (%)'])
+#print("variacao_relativa:", df_tab7['Variação Relativa (%)'])
 
 df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
