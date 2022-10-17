@@ -156,7 +156,12 @@ df_tab6['Estoque'] = df_tab6['Estoque'].astype('int')
 
 df_tab6.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
+#colunas = ['estoque', 'admissoes', 'desligamentos','saldos', 'variacao_relativa','mes', 'ano', 'uf', 'municipio']
+colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano', 'atividade']
 
+print("Colunas na tab6:\n", colunas)
+
+print("Final:\n",df_tab6[colunas])
 
 
 print(df_tab6)
