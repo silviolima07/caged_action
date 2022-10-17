@@ -93,7 +93,7 @@ lista_ativ = df_tab6['Grupamento de Atividades Econômicas e Seção CNAE 2.0'][
 
 atividades =[]
 for var in lista_ativ:
-        temp = var.replace('[','').replace(']','')
+        temp = var.str.replace('[','').replace(']','')
         atividades.append(temp)
 
 #atividades
