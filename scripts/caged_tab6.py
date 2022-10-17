@@ -99,6 +99,7 @@ temp = []
 
 for var in atividades:
     word = str(var).replace('[','').replace(']','')
+    word = word.replace("'",'')
     #print("Atividades:\n",word)
     temp.append(word)
 
