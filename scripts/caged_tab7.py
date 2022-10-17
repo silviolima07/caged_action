@@ -106,6 +106,8 @@ df_tab7 = pd.concat(frames)
 
 print(df_tab7.info())
 
+p
+
 print("Dataset antes de mudar tipo:\n",df_tab7)
 
 df_tab7['Saldos'] = df_tab7['Saldos'].replace('.','')
@@ -137,11 +139,16 @@ print("variacao_relativa:", df_tab7['Variação Relativa (%)'])
 
 df_tab7.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
 
-print("Colunas:", df_tab7.columns)
+#print("Colunas:", df_tab7.columns)
 
-df_tab7.to_csv('df_caged_tab7.csv', index=False, encoding='latin')
+colunas = ['estoque', 'admissoes', 'desligamentos','saldos','mes', 'ano']
+print("Colunas:", colunas)
 
-df_tab7.to_parquet("df_caged_tab7.parquet",engine='pyarrow')
+print("Final:\n",df_tab7.head())
+
+df_tab7['colunas'].to_csv('df_caged_tab7.csv', index=False, encoding='latin')
+
+df_tab7['colunas'].to_parquet("df_caged_tab7.parquet",engine='pyarrow')
 
 
 #print("\nCriado df_caged_tab7.csv")
