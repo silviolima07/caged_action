@@ -120,7 +120,7 @@ df_tab8 = df_tab8.loc[df_tab8['Estoque'] != '---']
 print('Shape:',df_tab8.shape)
 #print('Estoque:\n', df_tab8['Estoque'] )                     
                       
-#df_tab8['Estoque'] = df_tab8['Estoque'].astype('int32')
+df_tab8['Estoque'] = df_tab8['Estoque'].astype('int32')
 #
 #print("Saldo")
 df_tab8['Saldos'] = df_tab8['Saldos'].astype('int32')
