@@ -79,8 +79,6 @@ for i in colunas:
 
 col_set = set(colunas_filtered)
 
-col_set
-
 colunas = col_set
 
 #cols1 = ['Admissões', 'Desligamentos','Saldos']
@@ -98,8 +96,6 @@ for var in lista_ativ:
         atividades.append(var)
 
 #atividades
-
-len(atividades)
 
 #from datetime import datetime
 #x = datetime.now().date()
@@ -155,7 +151,13 @@ df_tab6['Desligamentos'] = df_tab6['Desligamentos'].astype('int')
 df_tab6['Saldos'] = df_tab6['Saldos'].replace(',','')
 df_tab6['Saldos'] = df_tab6['Saldos'].astype('int')
 
+df_tab6['Estoque'] = df_tab6['Estoque'].replace(',','')
+df_tab6['Estoque'] = df_tab6['Estoque'].astype('int')
+
 df_tab6.rename(columns={'Estoque':'estoque','Admissões':'admissoes', 'Desligamentos':'desligamentos', 'Saldos':'saldos', 'Variação Relativa (%)':'variacao_relativa'}, inplace=True)
+
+
+
 
 print(df_tab6)
 df_tab6.to_csv('df_caged_tab6.csv', index=False, encoding='utf-8')
