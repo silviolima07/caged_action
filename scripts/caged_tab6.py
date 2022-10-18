@@ -190,4 +190,3 @@ df_tab6[colunas].to_parquet("df_caged_tab6.parquet",engine='pyarrow')
 
 #print("\nCriado df_caged_tab6.csv no mes/ano:", data)
 
-p
