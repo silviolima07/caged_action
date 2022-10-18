@@ -177,9 +177,7 @@ print(df_tab6[colunas])
 
 print("Atividades:\n",df_tab6['atividade'])
       
-print(df_tab6.shape)
-      
-df_tab6.loc[df_tab6['atividade'].str.startswith('[')]      
+print(df_tab6.shape)   
 
 print("Salvando csv")
 
