@@ -8,7 +8,6 @@ from pprint import pformat
 import jmespath
 from jmespath import exceptions
 
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('expression')
