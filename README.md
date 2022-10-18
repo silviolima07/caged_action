@@ -5,7 +5,7 @@
 
 ### Este action faz:
 - scrap da tabela.xlxs disponibilizada, 
-- extrai 5 tabelas e gera um csv para cada uma:
+- extrai 4 tabelas e gera um csv para cada uma:
    - #### caged_tab5_evolucao_estoque_admissoes_desligamentos_saldo_por_mes_sem_ajustes
    - #### caged_tab6_evolucao_mensal_estoque_admissoes_desligamentos_saldo_por_grupamento_atividades_sem_ajustes
    - #### caged_tab7_evolucao_mensal_estoque_admissoes_desligamentos_saldo_por_nivel_geografico_sem_ajustes
